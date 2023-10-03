@@ -18,9 +18,15 @@
         </div>
         <div class="modal-body">
           <form method="post" enctype="multipart/form-data" action="<?= base_url('/admin/tambah_barang') ?>">
-            <?php if (isset($validation)) : ?>
+            <?php if (isset($errors)) : ?>
               <div class="d-block w-80 alert alert-warning my-2">
-                <?= $validation->listErrors() ?>
+                <ul>
+                  <?php foreach ($errors as $error) : ?>
+                    <li>
+                      <?= $error ?>
+                    </li>
+                  <?php endforeach ?>
+                </ul>
               </div>
             <?php endif; ?>
 
@@ -121,10 +127,10 @@
     <tbody>
       <?php foreach ($products as $product) : ?>
         <tr>
-          <td><?= $product['Product_Code'] ?></td>
-          <td><?= $product['Product_Name'] ?></td>
-          <td><?= $product['Product_Stock'] ?></td>
-          <td>Rp. <?= $product['Product_Price'] ?></td>
+          <td><?= $product['product_code'] ?></td>
+          <td><?= $product['product_name'] ?></td>
+          <td><?= $product['product_stock'] ?></td>
+          <td>Rp. <?= $product['product_price'] ?></td>
           <td>
             <button type="button" class="btn btn-danger">Hapus</button>
             <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>

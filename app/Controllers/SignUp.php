@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use Faker\Factory;
 
 class SignUp extends BaseController
 {
@@ -14,41 +15,40 @@ class SignUp extends BaseController
 
     public function index()
     {
-        $data = [];
-        return view('signup', $data);
-    }
+        // $data = [];
 
-    public function signup()
-    {
-        $rules = [
+        $validation = \Config\Services::validation();
+        $validation->setRules([
             'name' => 'required|min_length[3]|max_length[50]',
             'email' => 'required|valid_email',
             'password' => 'required|min_length[3]|max_length[50]',
-            'confirm_password' => 'matches[password]',
-        ];
+            'confirm_password' => 'matches[password]'
+        ]);
 
-        if ($this->validate($rules)) {
-            $model = new UserModel();
+        if ($this->request->getServer('REQUEST_METHOD') == 'POST') {
+            $isDataValid = $validation->withRequest($this->request)->run();
 
-            $data = [
-                // 'user_id' => uniqid('Admin_', TRUE),
-                'name' => $this->request->getVar('name'),
-                'email' => $this->request->getVar('email'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            ];
+            if ($isDataValid) {
+                $model = new UserModel();
+                $faker = Factory::create();
 
-            if ($model->save($data) === false) {
-                $errors = $model->errors();
+                $data = [
+                    'user_id' => $faker->uuid(),
+                    'name' => $this->request->getPost('name'),
+                    'email' => $this->request->getPost('email'),
+                    'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                ];
 
-                $data['validation'] = $errors;
-                return view('signup', $data);
-            } else {
-                $model->save($data);
+                $model->insert($data);
+
                 return redirect('login');
+            } else {
+                $data['errors'] = $validation->getErrors();
+                return view('signup', $data);
             }
         } else {
-            $data['validation'] = $this->validator;
-            return view('signup', $data);
+
+            return view('signup');
         }
     }
 }

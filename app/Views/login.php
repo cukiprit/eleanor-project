@@ -4,7 +4,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="row">
     <div class="col-12">
-      <form action="<?= base_url('/loggedin') ?>" method="post" class="login-form">
+      <form action="<?= base_url('/login') ?>" method="post" class="login-form">
         <img src="<?= base_url('img/logo/logo-light.png') ?>" alt="">
         <?php if (session()->getFlashdata('msg')) : ?>
           <div class="alert alert-warning my-4">

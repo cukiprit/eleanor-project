@@ -14,38 +14,45 @@ class Login extends BaseController
 
     public function index()
     {
-        return view('login');
-    }
-
-    public function login()
-    {
         $session = session();
-        $userModel = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'email' => 'required|valid_email',
+            'password' => 'required|min_length[3]|max_length[50]'
+        ]);
 
-        $data = $userModel->where('email', $email)->first();
+        $isDataValid = $validation->withRequest($this->request)->run();
 
-        if ($data) {
-            $pass = $data['password'];
-            $authenticatePass = password_verify($password, $pass);
+        if ($isDataValid) {
+            $model = new UserModel();
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
 
-            if ($authenticatePass) {
-                $ses_data = [
-                    'id' => $data['user_id'],
-                    'name' => $data['name'],
-                    'isLoggedIn' => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect('admin');
+            $data = $model->where('email', $email)->first();
+
+            if ($data) {
+                $pass = $data['password'];
+                $authenticatePass = password_verify($password, $pass);
+
+                if ($authenticatePass) {
+                    $ses_data = [
+                        'id' => $data['user_id'],
+                        'name' => $data['name'],
+                        'isLoggedIn' => TRUE
+                    ];
+                    $session->set($ses_data);
+                    return redirect('admin');
+                } else {
+                    $session->setFlashData('msg', 'Incorrect Password');
+                    return redirect('login');
+                }
             } else {
-                $session->setFlashData('msg', 'Incorrect Password');
+                $session->setFlashData('msg', 'Incorrect Email');
                 return redirect('login');
             }
-        } else {
-            $session->setFlashData('msg', 'Incorrect Email');
-            return redirect('login');
         }
+
+        return view('login');
     }
 
     public function logout()

@@ -3,11 +3,17 @@
 <?= $this->section('content') ?>
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="w-100">
-    <form action="<?= base_url('/signedup') ?>" method="post" class="login-form d-flex flex-column justify-content-center align-items-center">
+    <form action="<?= base_url('/signup') ?>" method="post" class="login-form d-flex flex-column justify-content-center align-items-center">
       <img class="d-block mx-auto align-items-center" src="<?= base_url('img/logo/logo-light.png') ?>" alt="Eleanor Logo">
-      <?php if (isset($validation)) : ?>
+      <?php if (isset($errors)) : ?>
         <div class="d-block w-80 alert alert-warning my-2">
-          <?= $validation->listErrors() ?>
+          <ul>
+            <?php foreach ($errors as $error) : ?>
+              <li>
+                <?= $error ?>
+              </li>
+            <?php endforeach ?>
+          </ul>
         </div>
       <?php endif; ?>
       <h2 class="text-center text-white my-4">Sign Up</h2>

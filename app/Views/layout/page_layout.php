@@ -9,7 +9,7 @@
   <title>Eleanor Project</title>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column justify-content-between" style="min-height:100vh; background-color: #fef9c3;">
 
   <?= $this->include('components/header') ?>
 

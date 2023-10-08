@@ -21,6 +21,7 @@ $routes->get('/logout', 'Login::logout');
 // Admin
 $routes->get('/admin', 'Admin::index', ['filter' => 'authGuard']);
 $routes->get('/admin/tambah_barang', 'Product::index', ['filter' => 'authGuard']);
-$routes->post('/admin/tambah_barang', 'Product::index', ['filter' => 'authGuard']);
-$routes->put('/admin/(:any)', 'Admin::edit/$1', ['filter' => 'authGuard']);
-$routes->delete('/admin/(:any)', 'Admin::delete/$1', ['filter' => 'authGuard']);
+$routes->post('/admin/tambah_barang', 'Product::create', ['filter' => 'authGuard']);
+$routes->get('/admin/edit_barang/(:any)', 'Product::edit/$1', ['filter' => 'authGuard']);
+$routes->put('/admin/edit_barang/(:any)', 'Product::edit_data/$1', ['filter' => 'authGuard']);
+$routes->delete('/admin/hapus_barang/(:any)', 'Admin::delete/$1', ['filter' => 'authGuard']);

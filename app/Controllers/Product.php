@@ -15,50 +15,10 @@ class Product extends BaseController
 
     public function index()
     {
-        $validation = \Config\Services::validation();
-        $validation->setRules([
-            'nama_barang' => 'required|min_length[3]|max_length[100]',
-            'harga_barang' => 'required|numeric',
-            'stok_barang' => 'required|numeric',
-            'deskripsi_barang' => 'required|min_length[10]',
-            'gambar_barang' => 'uploaded[gambar_barang]|max_size[gambar_barang,1024]|is_image[gambar_barang]',
+        $model = new ProductModel();
+        $data['products'] = $model->findAll();
 
-        ]);
-        $products = new ProductModel();
-
-        if ($this->request->getServer('REQUEST_METHOD') == 'POST') {
-            $isDataValid = $validation->withRequest($this->request)->run();
-
-            if ($isDataValid) {
-                $faker = Factory::create();
-
-                $file = $this->request->getFile('gambar_barang');
-                if ($file->isValid() && !$file->hasMoved()) {
-                    $newName = $file->getRandomName();
-                    $file->move(FCPATH . 'uploads/img', $newName);
-                }
-
-                $data = [
-                    'product_id' => $faker->uuid(),
-                    'product_name' => $this->request->getPost('nama_barang'),
-                    'product_description' => $this->request->getPost('deskripsi_barang'),
-                    'product_picture' => $newName,
-                    'product_stock' => $this->request->getPost('stok_barang'),
-                    'product_price' => $this->request->getPost('harga_barang'),
-                ];
-
-                $products->insert($data);
-
-                return redirect('admin/tambah_barang');
-            } else {
-                $data['errors'] = $validation->getErrors();
-                return view('admin/tambah_barang', $data);
-            }
-        } else {
-            $data['products'] = $products->findAll();
-
-            return view('admin/tambah_barang', $data);
-        }
+        return view('admin/tambah_barang', $data);
     }
 
     public function create()
@@ -69,11 +29,11 @@ class Product extends BaseController
         $file = $this->request->getFile('gambar_barang');
         if ($file->isValid() && !$file->hasMoved()) {
             $newName = $file->getRandomName();
-            $file->move(base_url('uploads/img'), $newName);
+            $file->move(FCPATH . 'uploads/img', $newName);
         }
 
         $data = [
-            'product_id' => $faker->uuid(),
+            'product_code' => $faker->uuid(),
             'product_name' => $this->request->getPost('nama_barang'),
             'product_description' => $this->request->getPost('deskripsi_barang'),
             'product_picture' => $newName,
@@ -82,5 +42,47 @@ class Product extends BaseController
         ];
 
         $model->insert($data);
+
+        return redirect('admin/tambah_barang');
+    }
+
+    public function edit($product_code)
+    {
+        $model = new ProductModel();
+        $product = $model->where('product_code', $product_code)->first();
+
+        return $this->response->setJSON($product);
+    }
+
+    public function edit_data($product_code)
+    {
+        $model = new ProductModel();
+
+        $file = $this->request->getFile('product_picture');
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move(FCPATH . 'uploads/img', $newName);
+        }
+
+        $data = [
+            'product_name' => $this->request->getPost('product_name'),
+            'product_description' => $this->request->getPost('product_description'),
+            'product_picture' => $newName,
+            'product_stock' => $this->request->getPost('product_stock'),
+            'product_price' => $this->request->getPost('product_price'),
+        ];
+
+        $model->update($product_code, $data);
+
+        return redirect('admin/tambah_barang');
+    }
+
+    public function delete($product_code)
+    {
+        $model = new ProductModel();
+
+        $model->delete($product_code);
+
+        return redirect('admin/tambah_barang');
     }
 }

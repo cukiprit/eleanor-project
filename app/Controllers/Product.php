@@ -32,6 +32,10 @@ class Product extends BaseController
             $file->move(FCPATH . 'uploads/img', $newName);
         }
 
+        // if (!empty($file)) {
+        //     $data['product_picture'] = $newName;
+        // }
+
         $data = [
             'product_code' => $faker->uuid(),
             'product_name' => $this->request->getPost('nama_barang'),
@@ -77,7 +81,7 @@ class Product extends BaseController
         return redirect('admin/tambah_barang');
     }
 
-    public function delete($product_code)
+    public function delete_barang($product_code)
     {
         $model = new ProductModel();
 

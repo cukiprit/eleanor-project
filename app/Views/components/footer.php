@@ -1,5 +1,6 @@
 <!-- Footer -->
-<footer style="background-color: #EE9322;" class="footer mt-auto py-3">
-  <h5 class="text-center text-white">&copy; Eleanor <?php echo date('Y'); ?></h5>
+<footer class="footer py-3 d-flex justify-content-center">
+  <p class="fw-bold text-dark">&copy; Copyright 2023</p>
+  <p class="ms-4">Eleanor Project</p>
 </footer>
 <!-- End of Footer -->

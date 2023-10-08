@@ -4,18 +4,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-3">
-      <img class="img-fluid" src="<?= $product['Product_Picture'] ?>" alt="Sepatu Converse">
+      <img class="img-fluid" src="<?= $product['product_picture'] ?>" alt="Sepatu Converse">
     </div>
 
     <div class="col-md-6 my-3">
-      <h1><?= $product['Product_Name'] ?></h1>
+      <h1><?= $product['product_name'] ?></h1>
 
       <p style="text-align: justify;">
-        <?= $product['Product_Description'] ?>
+        <?= $product['product_description'] ?>
       </p>
 
       <p class="display-6">
-        Rp. <?= $product['Product_Price'] ?>
+        Rp. <?= $product['product_price'] ?>
       </p>
     </div>
   </div>

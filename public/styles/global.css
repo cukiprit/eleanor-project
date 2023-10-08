@@ -1,0 +1,21 @@
+:root {
+  --white-amber: #fffbeb;
+  --dark-amber: #ee9322;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--white-amber);
+}
+
+img {
+  object-fit: cover;
+}
+
+.radius-15 {
+  border-radius: 15px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}

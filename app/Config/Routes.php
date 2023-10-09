@@ -25,3 +25,5 @@ $routes->post('/admin/tambah_barang', 'Product::create', ['filter' => 'authGuard
 $routes->get('/admin/edit_barang/(:any)', 'Product::edit/$1', ['filter' => 'authGuard']);
 $routes->post('/admin/edit_barang/(:any)', 'Product::edit_data/$1', ['filter' => 'authGuard']);
 $routes->get('/admin/hapus_barang/(:any)', 'Product::delete_barang/$1', ['filter' => 'authGuard']);
+
+$routes->get('/admin/barang_masuk', 'Product::index', ['filter' => 'authGuard']);

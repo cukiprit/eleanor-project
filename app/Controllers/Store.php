@@ -15,8 +15,10 @@ class Store extends BaseController
             'products' => $products->paginate(9, 'products'),
             'pager' => $products->pager
         ];
-
-        return view('stores', $data);
+        
+        // $active = uri_string() == 'store';
+        
+        return view('stores',  $data);
     }
 
     public function detail($product_code = NULL)

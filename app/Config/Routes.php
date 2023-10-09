@@ -6,6 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+ $data = uri_string();
+
 //  Home
 $routes->get('/', 'Home::index');
 $routes->get('/store', 'Store::index');

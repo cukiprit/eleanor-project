@@ -1,0 +1,26 @@
+/* index.php di page_layout.php */
+
+.desc {
+  font-size: 16px;
+}
+
+/* store.php di page_layout.php */
+
+.card-style {
+  width: 25%;
+  border-radius: 15px;
+  color: #000000;
+}
+
+.card-style:hover {
+  background-color: rgb(237, 237, 237);
+  color: #000;
+  transition: heigth 1s;
+}
+.card-style:hover img {
+  box-shadow: 0px 5px 5px rgb(195, 195, 195);
+}
+
+.accordion {
+  border-width: 0;
+}

@@ -16,15 +16,12 @@
 
   <?= $this->include('components/sidebar') ?>
 
-<<<<<<< HEAD
   <script src="<?= base_url("js/jquery-3.7.1.min.js") ?>"></script>
   <script src="<?= base_url("js/script.js") ?>"></script>
 
   <script src="<?= base_url("bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
   <script src="<?= base_url("bootstrap/js/bootstrap.min.js") ?>"></script>
   <script src="<?= base_url("fontawesome-free/js/all.min.js") ?>"></script>
-=======
->>>>>>> frontend-dev
 </body>
 
 </html>

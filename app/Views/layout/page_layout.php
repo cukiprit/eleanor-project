@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="d-flex flex-column overflow-lg-hidden px-5">
+<body class="d-flex flex-column overflow-lg-hidden">
 
   <?= $this->include('components/header') ?>
 

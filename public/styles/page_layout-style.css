@@ -1,10 +1,10 @@
-/* index.php di page_layout.php */
+/* header.php */
 
-.desc {
-  font-size: 16px;
+.hovering-navbar:hover {
+  font-weight: bold;
 }
 
-/* store.php di page_layout.php */
+/* store.php */
 
 .card-style {
   width: 25%;

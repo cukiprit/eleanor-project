@@ -6,12 +6,13 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
- $data = uri_string();
+$data = uri_string();
 
 //  Home
 $routes->get('/', 'Home::index');
 $routes->get('/store', 'Store::index');
 $routes->get('/store/(:any)', 'Store::detail/$1');
+$routes->get('/contact', 'Contact::index');
 
 // Login
 $routes->get('/signup', 'SignUp::index');

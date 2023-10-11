@@ -12,12 +12,10 @@ class Store extends BaseController
         $products = new ProductModel();
 
         $data = [
-            'products' => $products->paginate(9, 'products'),
+            'products' => $products->paginate(8, 'products'),
             'pager' => $products->pager
         ];
-        
-        // $active = uri_string() == 'store';
-        
+
         return view('stores',  $data);
     }
 

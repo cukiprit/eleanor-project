@@ -15,6 +15,11 @@ class Login extends BaseController
     public function index()
     {
         $session = session();
+
+        if (session()->get('isLoggedIn')) {
+            return redirect('admin');
+        }
+
         $validation = \Config\Services::validation();
         $validation->setRules([
             'email' => 'required|valid_email',

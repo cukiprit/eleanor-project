@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
- $data = uri_string();
+$data = uri_string();
 
 //  Home
 $routes->get('/', 'Home::index');
@@ -22,10 +22,17 @@ $routes->get('/logout', 'Login::logout');
 
 // Admin
 $routes->get('/admin', 'Admin::index', ['filter' => 'authGuard']);
+
+// Admin Barang
 $routes->get('/admin/tambah_barang', 'Product::index', ['filter' => 'authGuard']);
 $routes->post('/admin/tambah_barang', 'Product::create', ['filter' => 'authGuard']);
 $routes->get('/admin/edit_barang/(:any)', 'Product::edit/$1', ['filter' => 'authGuard']);
 $routes->post('/admin/edit_barang/(:any)', 'Product::edit_data/$1', ['filter' => 'authGuard']);
-$routes->get('/admin/hapus_barang/(:any)', 'Product::delete_barang/$1', ['filter' => 'authGuard']);
+$routes->delete('/admin/hapus_barang/(:any)', 'Product::delete_barang/$1', ['filter' => 'authGuard']);
 
-$routes->get('/admin/barang_masuk', 'Product::index', ['filter' => 'authGuard']);
+// Admin Barang Masuk
+$routes->get('/admin/barang_masuk', 'ProductIn::index', ['filter' => 'authGuard']);
+$routes->post('/admin/barang_masuk', 'ProductIn::create', ['filter' => 'authGuard']);
+$routes->get('/admin/edit_barang_masuk/(:any)', 'ProductIn::edit/$1', ['filter' => 'authGuard']);
+$routes->post('/admin/edit_barang_masuk/(:any)', 'ProductIn::edit_data/$1', ['filter' => 'authGuard']);
+$routes->delete('/admin/hapus_barang_masuk/(:any)', 'ProductIn::delete_barang/$1', ['filter' => 'authGuard']);

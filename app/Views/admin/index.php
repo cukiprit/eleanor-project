@@ -53,8 +53,8 @@
     <tbody>
       <?php foreach ($products as $product) : ?>
         <tr>
-          <td><?= $product['Product_Code'] ?></td>
-          <td><?= $product['Product_Name'] ?></td>
+          <td><?= $product['product_code'] ?></td>
+          <td><?= $product['product_name'] ?></td>
           <td><?= $product['quantity'] ?></td>
           <td><?= $product['date_in'] ?></td>
         </tr>

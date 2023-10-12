@@ -26,7 +26,7 @@ class Product extends BaseController
         $model = new ProductModel();
         $faker = Factory::create();
 
-        $file = $this->request->getFile('gambar_barang');
+        $file = $this->request->getFile('product_picture');
         if ($file->isValid() && !$file->hasMoved()) {
             $newName = $file->getRandomName();
             $file->move(FCPATH . 'uploads/img', $newName);
@@ -38,11 +38,11 @@ class Product extends BaseController
 
         $data = [
             'product_code' => $faker->uuid(),
-            'product_name' => $this->request->getPost('nama_barang'),
-            'product_description' => $this->request->getPost('deskripsi_barang'),
+            'product_name' => $this->request->getPost('product_name'),
+            'product_description' => $this->request->getPost('product_description'),
             'product_picture' => $newName,
-            'product_stock' => $this->request->getPost('stok_barang'),
-            'product_price' => $this->request->getPost('harga_barang'),
+            'product_stock' => $this->request->getPost('product_stock'),
+            'product_price' => $this->request->getPost('product_price'),
         ];
 
         $model->insert($data);
@@ -85,8 +85,9 @@ class Product extends BaseController
     {
         $model = new ProductModel();
 
-        $model->delete($product_code);
+        $deleted = $model->delete($product_code);
 
-        return redirect('admin/tambah_barang');
+        // return redirect('admin/tambah_barang');
+        return $this->response->setJSON(['success' => $deleted]);
     }
 }

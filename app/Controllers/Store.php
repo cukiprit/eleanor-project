@@ -10,14 +10,16 @@ class Store extends BaseController
     public function index()
     {
         $products = new ProductModel();
+        $result_product = $products->select('count(product_code) as Total')->first();
 
         $data = [
-            'products' => $products->paginate(9, 'products'),
+            'product' => $result_product['Total'],
+            'products' => $products->paginate(12, 'products'),
             'pager' => $products->pager
         ];
-        
+
         // $active = uri_string() == 'store';
-        
+
         return view('stores',  $data);
     }
 

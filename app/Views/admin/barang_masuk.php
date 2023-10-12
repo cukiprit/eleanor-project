@@ -2,63 +2,42 @@
 
 <?= $this->section('content') ?>
 <div class="container">
-  <h1>Tambah Barang</h1>
+  <h1>Tambah Barang Masuk</h1>
 
   <!-- Modal Tambah -->
   <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal" data-bs-target="#tambahModal">
-    <button class="btn btn-success">+ Tambah Barang</button>
+    <button class="btn btn-success">+ Barang Masuk</button>
   </div>
 
   <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Barang</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Barang Masuk</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form method="post" enctype="multipart/form-data" action="<?= base_url('/admin/tambah_barang') ?>">
-            <?php if (isset($errors)) : ?>
-              <div class="d-block w-80 alert alert-warning my-2">
-                <ul>
-                  <?php foreach ($errors as $error) : ?>
-                    <li>
-                      <?= $error ?>
-                    </li>
-                  <?php endforeach ?>
-                </ul>
-              </div>
-            <?php endif; ?>
-
+          <form method="post" action="<?= base_url('/admin/barang_masuk') ?>">
             <div class="mb-3">
               <label for="Nama" class="form-label">Nama Barang</label>
-              <input type="text" name="nama_barang" class="form-control">
+              <select class="form-select" name="product_name">
+                <option selected>Pilih Barang</option>
+                <?php foreach ($products as $product) : ?>
+                  <option value="<?= $product['product_code'] ?>"><?= $product['product_name'] ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
 
             <div class="row mb-3">
               <div class="col-6">
-                <label for="Nama" class="form-label">Harga Barang</label>
-                <input type="number" name="harga_barang" class="form-control">
+                <label for="Nama" class="form-label">Tanggal Barang Masuk</label>
+                <input type="date" name="date_in" class="form-control">
               </div>
 
               <div class="col-6">
-                <label for="Nama" class="form-label">Stok Barang</label>
-                <input type="number" name="stok_barang" class="form-control">
+                <label for="Nama" class="form-label">Jumlah Barang Masuk</label>
+                <input type="number" name="quantity" class="form-control">
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="Nama" class="form-label">Deskripsi Barang</label>
-              <textarea name="deskripsi_barang" class="form-control" rows="3"></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Upload Gambar Barang</label>
-              <input class="form-control" name="gambar_barang" type="file" id="formFile">
-            </div>
-
-            <div class="mb-3">
-              <img class="img-fluid" id="imagePreview">
             </div>
 
             <div class="modal-footer">
@@ -78,56 +57,48 @@
         <th scope="col">No</th>
         <th scope="col">Nama Produk</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
+        <th scope="col">Tanggal Masuk</th>
         <th scope="col">Aksi</th>
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($products as $product) : ?>
+      <?php foreach ($products_in as $product_in) : ?>
         <!-- Modal Edit -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editProdukMasukModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Barang</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Barang Masuk</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="formEdit" method="post" action="<?= base_url('admin/edit_barang/') . $product['product_code'] ?>" enctype="multipart/form-data">
+                <form method="post" action="<?= base_url('/admin/edit_barang_masuk/') . $product_in['code_product_in'] ?>">
                   <div class="mb-3">
                     <label for="Nama" class="form-label">Nama Barang</label>
-                    <input type="text" name="product_name" class="form-control">
+                    <select class="form-select" name="product_name">
+                      <option selected>Pilih Barang</option>
+                      <?php foreach ($products as $product) : ?>
+                        <option value="<?= $product['product_code'] ?>"><?= $product['product_name'] ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
 
                   <div class="row mb-3">
                     <div class="col-6">
-                      <label for="Nama" class="form-label">Harga Barang</label>
-                      <input type="number" name="product_price" class="form-control">
+                      <label for="Nama" class="form-label">Tanggal Barang Masuk</label>
+                      <input type="date" name="date_in" class="form-control">
                     </div>
 
                     <div class="col-6">
-                      <label for="Nama" class="form-label">Stok Barang</label>
-                      <input type="number" name="product_stock" class="form-control">
+                      <label for="Nama" class="form-label">Jumlah Barang Masuk</label>
+                      <input type="number" name="quantity" class="form-control">
                     </div>
                   </div>
 
-                  <div class="mb-3">
-                    <label for="Nama" class="form-label">Deskripsi Barang</label>
-                    <textarea class="form-control" name="product_description" rows="3"></textarea>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label">Upload Gambar Barang</label>
-                    <input class="form-control" name="product_picture" type="file" id="formFile">
-                  </div>
-
-                  <div class="mb-3">
-                    <img class="img-fluid" id="imagePreview">
-                  </div>
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success">Edit</button>
+                    <button type="submit" class="btn btn-success">Tambah</button>
                   </div>
                 </form>
               </div>
@@ -137,7 +108,7 @@
         <!-- End Modal Edit -->
 
         <!-- Modal Hapus -->
-        <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="hapusProdukMasukModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -149,9 +120,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-danger">Hapus Data</button> -->
-                <a href="<?= base_url('admin/hapus_barang/') . $product['product_code'] ?>" class="btn btn-danger">Hapus</a>
-
+                <button type="button" id="hapusProdukMasuk" class="btn btn-danger">Hapus</button>
               </div>
             </div>
           </div>
@@ -159,14 +128,13 @@
         <!-- End Modal Hapus -->
 
         <tr>
-          <td><?= $product['product_code'] ?></td>
-          <td><?= $product['product_name'] ?></td>
-          <td><?= $product['product_stock'] ?></td>
-          <td>Rp. <?= $product['product_price'] ?></td>
+          <td><?= $product_in['code_product_in'] ?></td>
+          <td><?= $product_in['product_name'] ?></td>
+          <td><?= $product_in['quantity'] ?></td>
+          <td><?= $product_in['date_in'] ?></td>
           <td>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-            <!-- <button type="button" class="btn btn-danger">Hapus</button> -->
-            <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editModal" data-product-code="<?= $product['product_code'] ?>">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusProdukMasukModal" data-product-code="<?= $product_in['code_product_in'] ?>">Hapus</button>
+            <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editProdukMasukModal" data-product-code="<?= $product_in['code_product_in'] ?>">
               Edit
             </button>
           </td>

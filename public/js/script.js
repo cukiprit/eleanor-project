@@ -3,7 +3,6 @@ $("#editModal").on("show.bs.modal", function (event) {
   let productCode = button.data("product-code");
 
   let modal = $(this);
-  modal.find(`input[name="product_code"]`).val(productCode);
 
   $.ajax({
     url: `/admin/edit_barang/${productCode}`,
@@ -17,6 +16,78 @@ $("#editModal").on("show.bs.modal", function (event) {
         .find('textarea[name="product_description"]')
         .val(data.product_description);
       // modal.find('input[name="product_picture"]').val(data.product_picture);
+    },
+  });
+});
+
+$("#hapusProdukModal").on("show.bs.modal", function (event) {
+  let button = $(event.relatedTarget);
+  let productCode = button.data("product-code");
+
+  let modal = $(this);
+  modal.find("#hapusProduk").data("product-code", productCode);
+});
+
+$("#hapusProduk").click(function () {
+  let productCode = $(this).data("product-code");
+
+  $.ajax({
+    url: `/admin/hapus_barang/${productCode}`,
+    method: "DELETE",
+    success: function (result) {
+      if (result.success) {
+        setTimeout(function () {
+          // button.closest(".modal").modal("hide");
+          $("#hapusProdukModal").modal("hide");
+
+          location.reload();
+        }, 500);
+      }
+    },
+  });
+});
+
+$("#editProdukMasukModal").on("show.bs.modal", function (event) {
+  let button = $(event.relatedTarget);
+  let productCode = button.data("product-code");
+
+  let modal = $(this);
+
+  $.ajax({
+    url: `/admin/edit_barang_masuk/${productCode}`,
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      modal.find('select[name="product_name"]').val(data.product_code);
+      modal.find('input[name="date_in"]').val(data.date_in);
+      modal.find('input[name="quantity"]').val(data.quantity);
+    },
+  });
+});
+
+$("#hapusProdukMasukModal").on("show.bs.modal", function (event) {
+  let button = $(event.relatedTarget);
+  let productCode = button.data("product-code");
+
+  let modal = $(this);
+  modal.find("#hapusProdukMasuk").data("product-code", productCode);
+});
+
+$("#hapusProdukMasuk").click(function () {
+  let productCode = $(this).data("product-code");
+
+  $.ajax({
+    url: `/admin/hapus_barang_masuk/${productCode}`,
+    method: "DELETE",
+    success: function (result) {
+      if (result.success) {
+        setTimeout(function () {
+          // button.closest(".modal").modal("hide");
+          $("#hapusModal").modal("hide");
+
+          location.reload();
+        }, 500);
+      }
     },
   });
 });

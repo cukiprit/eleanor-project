@@ -18,43 +18,31 @@
         </div>
         <div class="modal-body">
           <form method="post" enctype="multipart/form-data" action="<?= base_url('/admin/tambah_barang') ?>">
-            <?php if (isset($errors)) : ?>
-              <div class="d-block w-80 alert alert-warning my-2">
-                <ul>
-                  <?php foreach ($errors as $error) : ?>
-                    <li>
-                      <?= $error ?>
-                    </li>
-                  <?php endforeach ?>
-                </ul>
-              </div>
-            <?php endif; ?>
-
             <div class="mb-3">
               <label for="Nama" class="form-label">Nama Barang</label>
-              <input type="text" name="nama_barang" class="form-control">
+              <input type="text" name="product_name" class="form-control">
             </div>
 
             <div class="row mb-3">
               <div class="col-6">
                 <label for="Nama" class="form-label">Harga Barang</label>
-                <input type="number" name="harga_barang" class="form-control">
+                <input type="number" name="product_price" class="form-control">
               </div>
 
               <div class="col-6">
                 <label for="Nama" class="form-label">Stok Barang</label>
-                <input type="number" name="stok_barang" class="form-control">
+                <input type="number" name="product_stock" class="form-control">
               </div>
             </div>
 
             <div class="mb-3">
               <label for="Nama" class="form-label">Deskripsi Barang</label>
-              <textarea name="deskripsi_barang" class="form-control" rows="3"></textarea>
+              <textarea name="product_description" class="form-control" rows="3"></textarea>
             </div>
 
             <div class="mb-3">
               <label for="formFile" class="form-label">Upload Gambar Barang</label>
-              <input class="form-control" name="gambar_barang" type="file" id="formFile">
+              <input class="form-control" name="product_picture" type="file" id="formFile">
             </div>
 
             <div class="mb-3">
@@ -137,7 +125,7 @@
         <!-- End Modal Edit -->
 
         <!-- Modal Hapus -->
-        <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="hapusProdukModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -149,9 +137,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-danger">Hapus Data</button> -->
-                <a href="<?= base_url('admin/hapus_barang/') . $product['product_code'] ?>" class="btn btn-danger">Hapus</a>
-
+                <button type="button" id="hapusProduk" class="btn btn-danger">Hapus Data</button>
               </div>
             </div>
           </div>
@@ -164,8 +150,7 @@
           <td><?= $product['product_stock'] ?></td>
           <td>Rp. <?= $product['product_price'] ?></td>
           <td>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
-            <!-- <button type="button" class="btn btn-danger">Hapus</button> -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusProdukModal" data-product-code="<?= $product['product_code'] ?>">Hapus</button>
             <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#editModal" data-product-code="<?= $product['product_code'] ?>">
               Edit
             </button>

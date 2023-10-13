@@ -1,3 +1,11 @@
+li {
+  list-style: none;
+}
+
+.bg-content-header {
+  background: url(../../public/img/eduardo-soares-y39ElnSaZxc-unsplash.jpg);
+}
+
 /* header.php */
 
 .hovering-navbar:hover {
@@ -7,8 +15,8 @@
 /* store.php */
 
 .card-style {
-  width: 25%;
-  border-radius: 15px;
+  width: 20%;
+  border-radius: 10px;
   color: #000000;
 }
 

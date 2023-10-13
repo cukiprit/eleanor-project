@@ -12,7 +12,7 @@ class Store extends BaseController
         $products = new ProductModel();
 
         $data = [
-            'products' => $products->paginate(8, 'products'),
+            'products' => $products->paginate(15, 'products'),
             'pager' => $products->pager
         ];
 

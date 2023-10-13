@@ -6,7 +6,7 @@ font-family: 'Yantramanav', sans-serif; */
 
 :root {
   --white-amber: #fffbeb;
-  --dark-amber: #ee9322;
+  --dark-amber: #d97706;
   --secondary: #d4d4d4;
 }
 
@@ -19,13 +19,19 @@ body {
 img {
   object-fit: cover;
 }
-
-.radius-15 {
-  border-radius: 15px;
+.w-fit {
+  width: fit-content;
 }
 
-.fs-18 {
-  font-size: 18px;
+.radius-10 {
+  border-radius: 10px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+.fs-17 {
+  font-size: 17px;
 }
 
 .fs-22 {

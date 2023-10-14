@@ -14,15 +14,17 @@
 
 </head>
 
-<body class="position-relative d-flex flex-column overflow-lg-hidden">
+<body class="position-relative d-flex flex-column overflow-lg-hidden" id="layout-user">
 
   <?= $this->include('components/header') ?>
 
   <?= $this->renderSection('content') ?>
 
   <!--  $this->include('components/footer')  -->
+
   <script src="<?= base_url("js/jquery-3.7.1.min.js") ?>"></script>
   <script src="<?= base_url("js/script.js") ?>"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

@@ -29,6 +29,6 @@ class Product extends BaseController
             $file->move(WRITEPATH . 'uploads', $newName);
         }
 
-        $data;
+        // $data;
     }
 }

@@ -1,46 +1,62 @@
-<div class="container-fluid">
-  <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-        <a href="<?= base_url("/admin") ?>" class="d-none d-md-flex justify-content-md-center align-items-md-center pb-3 my-3 mb-md-0 me-md-auto text-white text-decoration-none">
+<div class="w-100 d-flex">
+  <div class="d-flex flex-column justify-content-between p-2 p-md-4 min-vh-100 bg-dark sidebar">
+    <div class="text-center text-md-start">
+      <div class="border-bottom pt-3 pt-md-0 pb-3 pb-md-4">
+        <button type="button" class="btn d-md-none">
+          <i class="fas fa-bars fs-3 text-white"></i>
+        </button>
+        <a href="<?= base_url("/admin") ?>" class="w-50 d-none d-md-block text-decoration-none">
           <img class="img-fluid" src="<?= base_url('/img/logo/logo-light.png') ?>" alt="Logo">
         </a>
-
-        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-          <li class="nav-item mt-3 mb-2">
-            <a href="<?= base_url("/admin") ?>" class="nav-link align-middle px-0 text-white">
-              <i class="fa-solid fa-gauge"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-            </a>
-          </li>
-
-          <li class="nav-item mb-2">
-            <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle px-0 text-white">
-              <i class="fa-solid fa-boxes-stacked"></i> <span class="ms-1 d-none d-sm-inline">Barang</span>
-            </a>
-          </li>
-
-          <li class="nav-item mb-2">
-            <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle px-0 text-white">
-              <i class="fa-solid fa-box-open"></i> <span class="ms-1 d-none d-sm-inline">Barang Masuk</span>
-            </a>
-          </li>
-
-          <li class="nav-item mb-2">
-            <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle px-0 text-white">
-              <i class="fa-solid fa-box-archive"></i> <span class="ms-1 d-none d-sm-inline">Barang Keluar</span>
-            </a>
-          </li>
-
-          <li class="nav-item mb-2">
-            <a href="<?= base_url("/logout") ?>" class="nav-link align-middle px-0 text-white">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="ms-1 d-none d-sm-inline">Logout</span>
-            </a>
-          </li>
-        </ul>
       </div>
+
+      <ul class="nav nav-pills flex-column mt-4 align-items-center align-items-sm-start w-100" id="menu">
+        <li class="nav-item w-100">
+          <a href="<?= base_url("/admin") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-gauge fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Statistik</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-boxes-stacked fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Manajemen data</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-box-open fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Barang Masuk</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-box-archive fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Barang Keluar</span>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="col py-3">
-      <?= $this->renderSection('content') ?>
+    <div class="w-100">
+      <button class="nav-item w-100 btn p-0 bg-danger text-start">
+        <a href="<?= base_url("/logout") ?>" class="nav-link align-middle text-white px-3 py-2">
+          <span class="d-inline-block text-center text-md-start" style="width: 2rem;">
+            <i class="fa-solid fa-arrow-right-from-bracket fs-5"></i>
+          </span>
+          <span class="d-none d-md-inline">Keluar Akun</span>
+        </a>
+      </button>
     </div>
+  </div>
+  <div class="w-100 px-5 py-4">
+    <?= $this->renderSection('content') ?>
   </div>
 </div>

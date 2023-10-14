@@ -1,3 +1,47 @@
+$(window).on('scroll', () => {
+  this.scrollY > 10 ?
+    $('#navigation-bar').addClass('nav-active') :
+    $('#navigation-bar').removeClass('nav-active')
+})
+
+$('.navbar-toggler').on('click', () => {
+  $('.navbar').toggleClass('nav-active');
+})
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [2020, 2021, 2022, 2023],
+    datasets: [
+      {
+        label: 'Barang Masuk',
+        data: [6, 9, 3, 5],
+        fill: true,
+        borderWidth: 1,
+        pointRadius: 2
+      },
+      {
+        label: 'Barang Keluar',
+        data: [7, 3, 2, 4],
+        fill: true,
+        borderWidth: 1,
+        pointRadius: 2
+      },
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+
+
 $("#editModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);
   let productCode = button.data("product-code");

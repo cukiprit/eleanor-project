@@ -1,0 +1,14 @@
+/* sidebar */
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (width <= 800px) {
+  .sidebar {
+    width: fit-content;
+    min-width: fit-content;
+  }
+}

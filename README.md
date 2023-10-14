@@ -1,40 +1,14 @@
-# CodeIgniter 4 Application Starter
+# Project Eleanor
 
-## Installation & updates
+## Penjelasan aplikasi
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Project eleanor merupakan website rekap data produk dari eleanor dimana pada website ini menyediakan fitur untuk membuat rekap data barang masuk maupun keluar dan juga dapat menambahkan, mengubah, maupun menghapus produk.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Cara penggunaan
 
-## Setup
+Ketika pertama kali mendownload project ini jangan lupa untuk melakukan `composer install` untuk menginstall dependency yang dibutuhkan. Ketika ingin melakukan maintenance jangan lupa untuk mengubah `CI_ENVIRONMENT` pada file `.env` menjadi `development` dan apabila websitenya akan digunakan pada tahap produksi rubahlah menjadi `production`
 
-Untuk mengganti atau menyeting database pada file `.env`
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the _public_ folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's _public_ folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter _public/..._, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Apabila pada file project tidak ditemukan file `.env` silahkan rename file `env` menjadi `.env`
 
 ## Server Requirements
 

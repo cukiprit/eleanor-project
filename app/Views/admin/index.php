@@ -32,11 +32,19 @@
           </h2>
 
           <p class="h3">
-            200
+            <?php if (is_null($sum_product_out) || $sum_product_out < 0) : ?>
+              0
+            <?php else : ?>
+              <?= $sum_product_out ?>
+            <?php endif; ?>
           </p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="container">
+    <canvas id="productChart"></canvas>
   </div>
 
   <h1 class="py-3">Riwayat Barang</h1>

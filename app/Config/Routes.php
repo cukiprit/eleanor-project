@@ -22,6 +22,7 @@ $routes->get('/logout', 'Login::logout');
 
 // Admin
 $routes->get('/admin', 'Admin::index', ['filter' => 'authGuard']);
+$routes->get('/admin/get-chart', 'Admin::chart', ['filter' => 'authGuard']);
 
 // Admin Barang
 $routes->get('/admin/tambah_barang', 'Product::index', ['filter' => 'authGuard']);
@@ -36,3 +37,10 @@ $routes->post('/admin/barang_masuk', 'ProductIn::create', ['filter' => 'authGuar
 $routes->get('/admin/edit_barang_masuk/(:any)', 'ProductIn::edit/$1', ['filter' => 'authGuard']);
 $routes->post('/admin/edit_barang_masuk/(:any)', 'ProductIn::edit_data/$1', ['filter' => 'authGuard']);
 $routes->delete('/admin/hapus_barang_masuk/(:any)', 'ProductIn::delete_barang/$1', ['filter' => 'authGuard']);
+
+// Admin Barang Keluar
+$routes->get('/admin/barang_keluar', 'ProductOut::index', ['filter' => 'authGuard']);
+$routes->post('/admin/barang_keluar', 'ProductOut::create', ['filter' => 'authGuard']);
+$routes->get('/admin/edit_barang_keluar/(:any)', 'ProductOut::edit/$1', ['filter' => 'authGuard']);
+$routes->post('/admin/edit_barang_keluar/(:any)', 'ProductOut::edit_data/$1', ['filter' => 'authGuard']);
+$routes->delete('/admin/hapus_barang_keluar/(:any)', 'ProductOut::delete_barang/$1', ['filter' => 'authGuard']);

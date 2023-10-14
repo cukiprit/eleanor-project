@@ -29,6 +29,7 @@ class ProductInModel extends Model
     {
         return $this->select('*')
             ->join('products', 'products.product_code = product_in.product_code', 'left')
+            ->orderBy('date_in', 'ASC')
             ->findAll();
     }
 }

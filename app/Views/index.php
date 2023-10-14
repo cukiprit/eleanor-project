@@ -14,7 +14,7 @@
       Kami hadir untuk menjadi mitra sebagai solusi pertumbuhan bisnis anda. Kami adalah sebuah perusahaan di bidang digital marketing yang berfokus pada layanan di marketplace untuk dropship dan freelance, serta menyediakan jasa gudang untuk transit produk dan resi.
     </p>
     <div class="p-0">
-      <a href="/store" style="background-color: #EE9322;" class="btn rounded-pill text-white px-4 mt-2 me-md-2">Lihat Stok Barang</a>
+      <a href="<?= base_url('/store') ?>" style="background-color: #EE9322;" class="btn rounded-pill text-white px-4 mt-2 me-md-2">Lihat Stok Barang</a>
     </div>
   </div>
 

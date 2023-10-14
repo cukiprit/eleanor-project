@@ -20,7 +20,7 @@
 
   <?= $this->renderSection('content') ?>
 
-  <!--  $this->include('components/footer')  -->
+  <?= $this->include('components/footer') ?>
 
 </body>
 

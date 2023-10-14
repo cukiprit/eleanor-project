@@ -8,9 +8,13 @@ use Faker\Factory;
 
 class Product extends BaseController
 {
+    protected $ProductModel;
+
     public function __construct()
     {
         helper(['form', 'url']);
+
+        $this->ProductModel = new ProductModel();
     }
 
     public function index()
@@ -23,7 +27,6 @@ class Product extends BaseController
 
     public function create()
     {
-        $model = new ProductModel();
         $faker = Factory::create();
 
         $file = $this->request->getFile('product_picture');
@@ -31,10 +34,6 @@ class Product extends BaseController
             $newName = $file->getRandomName();
             $file->move(FCPATH . 'uploads/img', $newName);
         }
-
-        // if (!empty($file)) {
-        //     $data['product_picture'] = $newName;
-        // }
 
         $data = [
             'product_code' => $faker->uuid(),
@@ -45,23 +44,20 @@ class Product extends BaseController
             'product_price' => $this->request->getPost('product_price'),
         ];
 
-        $model->insert($data);
+        $this->ProductModel->insert($data);
 
         return redirect('admin/tambah_barang');
     }
 
     public function edit($product_code)
     {
-        $model = new ProductModel();
-        $product = $model->where('product_code', $product_code)->first();
+        $product = $this->ProductModel->where('product_code', $product_code)->first();
 
         return $this->response->setJSON($product);
     }
 
     public function edit_data($product_code)
     {
-        $model = new ProductModel();
-
         $file = $this->request->getFile('product_picture');
         if ($file->isValid() && !$file->hasMoved()) {
             $newName = $file->getRandomName();
@@ -76,18 +72,15 @@ class Product extends BaseController
             'product_price' => $this->request->getPost('product_price'),
         ];
 
-        $model->update($product_code, $data);
+        $this->ProductModel->update($product_code, $data);
 
         return redirect('admin/tambah_barang');
     }
 
     public function delete_barang($product_code)
     {
-        $model = new ProductModel();
+        $deleted = $this->ProductModel->delete($product_code);
 
-        $deleted = $model->delete($product_code);
-
-        // return redirect('admin/tambah_barang');
         return $this->response->setJSON(['success' => $deleted]);
     }
 }

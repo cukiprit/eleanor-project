@@ -47,13 +47,6 @@ li {
   }
 }
 
-@media (width <= 400px) {
-  /* .py-6 {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-  } */
-}
-
 /* ANIMATION */
 @keyframes slide-down {
   from {

@@ -27,8 +27,9 @@ class ProductInModel extends Model
 
     public function joinProducts()
     {
-        return $this->db->table('product_in')
-            ->join('products', 'products.Product_Code=product_in.Product_Code')
-            ->get(5)->getResultArray();
+        return $this->select('*')
+            ->join('products', 'products.product_code = product_in.product_code', 'left')
+            ->orderBy('date_in', 'ASC')
+            ->findAll();
     }
 }

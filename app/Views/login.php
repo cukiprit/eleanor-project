@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="col col-lg-6 d-flex align-items-center p-3 p-md-0">
-    <form action="<?= base_url('/loggedin') ?>" method="post" class="login-form mx-auto">
+    <form action="<?= base_url('/login') ?>" method="post" class="login-form mx-auto">
       <div class="mb-3 mb-md-5">
         <div class="mb-5 d-lg-none">
           <img src="<?= base_url('img/logo/logo-eleanor (1).png') ?>" class="mx-auto logo-login" width="150" alt="">

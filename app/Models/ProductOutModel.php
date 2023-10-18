@@ -25,4 +25,12 @@ class ProductOutModel extends Model
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
+
+    public function joinProducts()
+    {
+        return $this->select('*')
+            ->join('products', 'products.product_code = product_out.product_code', 'left')
+            ->orderBy('date_out', 'ASC')
+            ->findAll();
+    }
 }

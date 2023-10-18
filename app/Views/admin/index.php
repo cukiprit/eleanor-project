@@ -1,11 +1,11 @@
 <?= $this->extend('layout/admin_layout') ?>
 
-<?= $this->section('content') ?>
-<div class="">
+<?= $this->section('content_admin') ?>
+<div class="w-100 p-4">
   <div class="mb-5">
     <h4 class="fw-bold">Data Statistik</h4>
     <div>
-      <canvas id="myChart" class="w-100"></canvas>
+      <canvas id="productChart" class="w-100"></canvas>
     </div>
   </div>
   <div class="">
@@ -20,35 +20,15 @@
           <th scope="col">Kategori</th>
         </tr>
       </thead>
-      <tbody align="center" class="fs-14">
-        <tr>
-          <td>1</td>
-          <td>02837482734987</td>
-          <td>20</td>
-          <td>10/05/2023</td>
-          <td>masuk</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>02837482734987</td>
-          <td>20</td>
-          <td>10/05/2023</td>
-          <td>masuk</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>02837482734987</td>
-          <td>20</td>
-          <td>10/05/2023</td>
-          <td>masuk</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>02837482734987</td>
-          <td>20</td>
-          <td>10/05/2023</td>
-          <td>masuk</td>
-        </tr>
+      <tbody>
+        <?php foreach ($products as $product) : ?>
+          <tr>
+            <td><?= $product['product_code'] ?></td>
+            <td><?= $product['product_name'] ?></td>
+            <td><?= $product['quantity'] ?></td>
+            <td><?= $product['date_in'] ?></td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </div>

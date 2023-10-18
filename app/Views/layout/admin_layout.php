@@ -16,12 +16,20 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="d-flex flex-nowrap">
+<body class="w-100 d-flex">
 
   <?= $this->include('components/sidebar') ?>
 
+  <?= $this->renderSection('content_admin') ?>
+
   <script src="<?= base_url("js/jquery-3.7.1.min.js") ?>"></script>
   <script src="<?= base_url("js/script.js") ?>"></script>
+
+  <?php if (strpos($_SERVER['REQUEST_URI'], '/admin') !== false) : ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js" integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.1/chartjs-adapter-moment.min.js" integrity="sha512-hVy4KxCKgnXi2ok7rlnlPma4JHXI1VPQeempoaclV1GwRHrDeaiuS1pI6DVldaj5oh6Opy2XJ2CTljQLPkaMrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <?php endif; ?>
 </body>
 
 </html>

@@ -1,14 +1,25 @@
 /* sidebar */
 .sidebar {
-  width: 300px;
-  min-width: 300px;
+  width: 260px;
+  min-width: 260px;
 }
 
+/* content */
+
+.dropdown-toggle::after {
+  display: none;
+}
+.menu-logo {
+  width: 2rem;
+}
 /* MEDIA QUERY */
 
-@media screen and (width <= 800px) {
+@media screen and (width <= 850px) {
   .sidebar {
     width: fit-content;
     min-width: fit-content;
+  }
+  .logo-brand {
+    width: 50%;
   }
 }

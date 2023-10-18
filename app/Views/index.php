@@ -16,7 +16,8 @@
       gudang untuk transit produk dan resi.
     </p>
     <div class="p-0">
-      <a href="/store" class="btn text-white px-5 py-2 mt-2 me-md-2 bg-dark-amber text-uppercase fs-16">Lihat
+      <a href="<?= base_url('/store') ?>"
+        class="btn text-white px-5 py-2 mt-2 me-md-2 bg-dark-amber text-uppercase fs-16">Lihat
         Stok Barang</a>
     </div>
   </div>

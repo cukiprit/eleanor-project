@@ -20,7 +20,7 @@
 
   <?= $this->renderSection('content') ?>
 
-  <!--  $this->include('components/footer')  -->
+  <?= $this->include('components/footer') ?>
 
   <script src="<?= base_url("js/jquery-3.7.1.min.js") ?>"></script>
   <script src="<?= base_url("js/script.js") ?>"></script>

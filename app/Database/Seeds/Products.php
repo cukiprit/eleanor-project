@@ -13,12 +13,12 @@ class Products extends Seeder
 
         for ($i = 0; $i < 100; $i++) {
             $data = [
-                'Product_Code' => $faker->uuid(),
-                'Product_name' => $faker->word(),
-                'Product_Description' => $faker->sentence(),
-                'Product_Picture' => $faker->imageUrl(640, 480, 'products', true),
-                'Product_Stock' => $faker->numberBetween(0, 100),
-                'Product_Price' => $faker->randomFloat(10000, 0, 10000000),
+                'product_code' => $faker->uuid(),
+                'product_name' => $faker->word(),
+                'product_description' => $faker->sentence(),
+                'product_picture' => $faker->imageUrl(640, 480, 'products', true),
+                'product_stock' => $faker->numberBetween(0, 100),
+                'product_price' => $faker->randomFloat(10000, 0, 10000000),
             ];
 
             $this->db->table('products')->insert($data);

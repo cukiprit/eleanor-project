@@ -46,8 +46,8 @@
         <div class="h-100 p-2 my-2 card-style">
           <a href="<?= base_url("/store/" . $product['product_code']) ?>" class="text-decoration-none card-style">
             <div class="w-100 p-1" style="height: 250px;">
-              <img src="<?= base_url('img/annie-williams-FlP6C5pkMKs-unsplash.jpg') ?>"
-                alt="<?= $product['product_name'] ?>" class="w-100 h-100 radius-10">
+              <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>"
+                class="w-100 h-100 radius-10">
             </div>
             <div class="card-body p-2 radius-15">
               <p class="card-title text-capitalize m-0 fs-17">
@@ -68,48 +68,3 @@
 </div>
 
 <?= $this->endSection() ?>
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="h-100 p-2 my-2 card-style">
-  <a href="<?= base_url("/store/" . $product['product_code']) ?>" class="text-decoration-none card-style">
-    <div class="w-100 p-1" style="height: 300px;">
-      <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>" class="w-100 h-100 radius-15">
-      <img src="<?= base_url('img/annie-williams-FlP6C5pkMKs-unsplash.jpg') ?>" alt="<?= $product['product_name'] ?>"
-        class="w-100 h-100 radius-15">
-    </div>
-    <div class="card-body p-3 radius-15">
-      <p class="card-title text-capitalize m-0 fs-17">
-        <?= $product['product_name'] ?>
-      </p>
-      <p class="card-text my-1 text-danger fs-17">Rp
-        <?= $product['product_price'] ?></p>
-    </div>
-  </a>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-<!-- <a href="<?= base_url("/store/" . $product['product_code']) ?>" class="col-lg-4 col-md-5 mb-4 text-dark text-decoration-none">
-  <div class="card h-100">
-    <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>" class="img-fluid">
-    <div class="card-body">
-      <h5 class="card-title text-capitalize"><?= $product['product_name'] ?></h5>
-      <p class="card-text text-primary">Rp <?= $product['product_price'] ?></p>
-    </div>
-  </div>
-</a> -->

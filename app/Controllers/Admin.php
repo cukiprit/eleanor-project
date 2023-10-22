@@ -4,27 +4,26 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProductInModel;
+use App\Models\ProductModel;
 use App\Models\ProductOutModel;
 
 class Admin extends BaseController
 {
-    protected $ProductIn;
-    protected $ProductOut;
+    protected $ProductInModel;
+    protected $ProductOutModel;
+    protected $ProductModel;
 
     public function __construct()
     {
-        $this->ProductIn = new ProductInModel();
-        $this->ProductOut = new ProductOutModel();
+        $this->ProductModel = new ProductModel();
+        $this->ProductInModel = new ProductInModel();
+        $this->ProductOutModel = new ProductOutModel();
     }
     public function index()
     {
-        $result_in = $this->ProductIn->select('sum(quantity) as Total')->first();
-        $result_out = $this->ProductOut->select('sum(quantity) AS Total')->first();
-
         $data = [
-            'products' => $this->ProductIn->joinProducts(),
-            'sum_product_in' => $result_in['Total'],
-            'sum_product_out' => $result_out['Total']
+            'products_in'   => $this->ProductInModel->joinProducts(),
+            'products_out'  => $this->ProductOutModel->joinProducts(),
         ];
 
         return view('admin/index', $data);
@@ -33,8 +32,8 @@ class Admin extends BaseController
     public function chart()
     {
         $data = [
-            'products_in' => $this->ProductIn->orderBy('date_in', 'ASC')->findAll(),
-            'products_out' => $this->ProductOut->orderBy('date_out', 'ASC')->findAll()
+            'products_in' => $this->ProductInModel->orderBy('date_in', 'ASC')->findAll(),
+            'products_out' => $this->ProductOutModel->orderBy('date_out', 'ASC')->findAll()
         ];
 
         return $this->response->setJSON($data);

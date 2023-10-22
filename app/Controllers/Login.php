@@ -48,11 +48,11 @@ class Login extends BaseController
                     $session->set($ses_data);
                     return redirect('admin');
                 } else {
-                    $session->setFlashData('msg', 'Incorrect Password');
+                    $session->setFlashdata('msg', 'Incorrect Password');
                     return redirect('login');
                 }
             } else {
-                $session->setFlashData('msg', 'Incorrect Email');
+                $session->setFlashdata('msg', 'Incorrect Email');
                 return redirect('login');
             }
         }

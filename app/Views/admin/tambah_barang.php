@@ -159,5 +159,8 @@
       <?php endforeach ?>
     </tbody>
   </table>
+  <div class="d-flex justify-content-center my-4">
+    <?= $pager->links('products', 'bootstrap_pagination') ?>
+  </div>
 </div>
 <?= $this->endSection() ?>

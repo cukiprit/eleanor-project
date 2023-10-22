@@ -1,21 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest&family=Rubik&family=Yantramanav&display=swap");
+
+/* font-family: 'Onest', sans-serif;
+font-family: 'Rubik', sans-serif;
+font-family: 'Yantramanav', sans-serif; */
+
 :root {
   --white-amber: #fffbeb;
-  --dark-amber: #ee9322;
+  --dark-amber: #d97706;
+  --secondary: #d4d4d4;
 }
 
 body {
   min-height: 100vh;
-  background-color: var(--white-amber);
+  font-family: "Onest", sans-serif;
+  /* background-color: var(--white-amber); */
 }
 
 img {
   object-fit: cover;
 }
 
-.radius-15 {
-  border-radius: 15px;
+.w-fit {
+  width: fit-content;
 }
 
-.fs-18 {
-  font-size: 18px;
+.radius-10 {
+  border-radius: 10px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-17 {
+  font-size: 17px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.bg-dark-amber {
+  background-color: var(--dark-amber);
 }

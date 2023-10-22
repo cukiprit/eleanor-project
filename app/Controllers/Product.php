@@ -19,8 +19,10 @@ class Product extends BaseController
 
     public function index()
     {
-        $model = new ProductModel();
-        $data['products'] = $model->findAll();
+        $data = [
+            'products'  => $this->ProductModel->paginate(10, 'products'),
+            'pager'     => $this->ProductModel->pager
+        ];
 
         return view('admin/tambah_barang', $data);
     }
@@ -36,12 +38,12 @@ class Product extends BaseController
         }
 
         $data = [
-            'product_code' => $faker->uuid(),
-            'product_name' => $this->request->getPost('product_name'),
-            'product_description' => $this->request->getPost('product_description'),
-            'product_picture' => $newName,
-            'product_stock' => $this->request->getPost('product_stock'),
-            'product_price' => $this->request->getPost('product_price'),
+            'product_code'          => $faker->uuid(),
+            'product_name'          => $this->request->getPost('product_name'),
+            'product_description'   => $this->request->getPost('product_description'),
+            'product_picture'       => $newName,
+            'product_stock'         => $this->request->getPost('product_stock'),
+            'product_price'         => $this->request->getPost('product_price'),
         ];
 
         $this->ProductModel->insert($data);
@@ -65,11 +67,11 @@ class Product extends BaseController
         }
 
         $data = [
-            'product_name' => $this->request->getPost('product_name'),
-            'product_description' => $this->request->getPost('product_description'),
-            'product_picture' => $newName,
-            'product_stock' => $this->request->getPost('product_stock'),
-            'product_price' => $this->request->getPost('product_price'),
+            'product_name'          => $this->request->getPost('product_name'),
+            'product_description'   => $this->request->getPost('product_description'),
+            'product_picture'       => $newName,
+            'product_stock'         => $this->request->getPost('product_stock'),
+            'product_price'         => $this->request->getPost('product_price'),
         ];
 
         $this->ProductModel->update($product_code, $data);

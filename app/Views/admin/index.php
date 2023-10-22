@@ -1,73 +1,60 @@
 <?= $this->extend('layout/admin_layout') ?>
 
 <?= $this->section('content') ?>
-<div class="container">
-  <h1 class="py-3">Dashboard</h1>
-
+<div class="">
+  <div class="mb-5">
+    <h4 class="fw-bold">Data Statistik</h4>
+    <div>
+      <canvas id="productChart" class="w-100"></canvas>
+    </div>
+  </div>
   <div class="row">
-    <div class="mb-md-3 col-md-6">
-      <div class="card bg-primary text-white">
-        <div class="card-body">
-          <h2>
-            <i class="fa-solid fa-boxes-stacked"></i>
-            Barang Masuk
-          </h2>
-
-          <p class="h3">
-            <?php if (is_null($sum_product_in) || $sum_product_in < 0) : ?>
-              0
-            <?php else : ?>
-              <?= $sum_product_in ?>
-            <?php endif; ?>
-          </p>
-        </div>
-      </div>
+    <div class="col-md-6">
+      <h4 class="fw-bold">Riwayat Barang Keluar</h4>
+      <table class="table table-striped">
+        <thead align="center">
+          <tr class="text-uppercase fs-14">
+            <th scope="col">No</th>
+            <th scope="col">Nama Produk</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Tanggal Masuk</th>
+          </tr>
+        </thead>
+        <tbody align="center" class="fs-14">
+          <?php foreach ($products_in as $product_in) : ?>
+            <tr>
+              <td><?= $product_in['code_product_in'] ?></td>
+              <td><?= $product_in['product_name'] ?></td>
+              <td><?= $product_in['quantity'] ?></td>
+              <td><?= $product_in['date_in'] ?></td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
     </div>
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-body bg-dark text-white">
-          <h2>
-            <i class="fa-solid fa-box"></i>
-            Barang Keluar
-          </h2>
-
-          <p class="h3">
-            <?php if (is_null($sum_product_out) || $sum_product_out < 0) : ?>
-              0
-            <?php else : ?>
-              <?= $sum_product_out ?>
-            <?php endif; ?>
-          </p>
-        </div>
-      </div>
+      <h4 class="fw-bold">Riwayat Barang Keluar</h4>
+      <table class="table table-striped">
+        <thead align="center">
+          <tr class="text-uppercase fs-14">
+            <th scope="col">No</th>
+            <th scope="col">Nama Produk</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Tanggal Masuk</th>
+          </tr>
+        </thead>
+        <tbody align="center" class="fs-14">
+          <?php foreach ($products_out as $product_out) : ?>
+            <tr>
+              <td><?= $product_out['code_product_out'] ?></td>
+              <td><?= $product_out['product_name'] ?></td>
+              <td><?= $product_out['quantity'] ?></td>
+              <td><?= $product_out['date_out'] ?></td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <div class="container">
-    <canvas id="productChart"></canvas>
-  </div>
-
-  <h1 class="py-3">Riwayat Barang</h1>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">No</th>
-        <th scope="col">Nama Produk</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Date In</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($products as $product) : ?>
-        <tr>
-          <td><?= $product['product_code'] ?></td>
-          <td><?= $product['product_name'] ?></td>
-          <td><?= $product['quantity'] ?></td>
-          <td><?= $product['date_in'] ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
 </div>
 <?= $this->endSection() ?>

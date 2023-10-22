@@ -7,15 +7,20 @@ use App\Models\ProductModel;
 
 class Store extends BaseController
 {
+    protected $ProductModel;
+    public function __construct()
+    {
+        $this->ProductModel = new ProductModel();
+    }
+
     public function index()
     {
-        $products = new ProductModel();
-        $result_product = $products->select('count(product_code) as Total')->first();
+        $result_product = $this->ProductModel->select('count(product_code) as Total')->first();
 
         $data = [
-            'product' => $result_product['Total'],
-            'products' => $products->paginate(12, 'products'),
-            'pager' => $products->pager
+            'product'   => $result_product['Total'],
+            'products'  => $this->ProductModel->paginate(12, 'products'),
+            'pager'     => $this->ProductModel->pager
         ];
 
         // $active = uri_string() == 'store';
@@ -25,9 +30,7 @@ class Store extends BaseController
 
     public function detail($product_code = NULL)
     {
-        $product = new ProductModel();
-
-        $data['product'] = $product->find($product_code);
+        $data['product'] = $this->ProductModel->find($product_code);
 
         return view('detail_store', $data);
     }

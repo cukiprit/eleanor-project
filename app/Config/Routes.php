@@ -12,6 +12,7 @@ $data = uri_string();
 $routes->get('/', 'Home::index');
 $routes->get('/store', 'Store::index');
 $routes->get('/store/(:any)', 'Store::detail/$1');
+$routes->get('/contact', 'Contact::index');
 
 // Login
 $routes->get('/signup', 'SignUp::index');

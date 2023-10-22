@@ -7,6 +7,9 @@
   <link rel="shortcut icon" href="<?= base_url('img/logo/logo.png') ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url('bootstrap/css/bootstrap.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('fontawesome-free/css/all.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('styles/global.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('styles/admin_layout-style.css') ?>">
+
   <title>Eleanor Project</title>
   <script src="<?= base_url("bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
   <script src="<?= base_url("fontawesome-free/js/all.min.js") ?>"></script>
@@ -16,20 +19,65 @@
 
   <?= $this->include('components/sidebar') ?>
 
-  <?= $this->renderSection('content') ?>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.1/chartjs-adapter-moment.min.js"></script>
   <script src="<?= base_url("js/jquery-3.7.1.min.js") ?>"></script>
   <script src="<?= base_url("js/script.js") ?>"></script>
 
-  <script src="<?= base_url("bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
-  <script src="<?= base_url("bootstrap/js/bootstrap.min.js") ?>"></script>
-  <script src="<?= base_url("fontawesome-free/js/all.min.js") ?>"></script>
+  <script type="module">
+    // Chart
+    $.ajax({
+      url: "/admin/get-chart",
+      method: "GET",
+      success: function(data) {
+        drawChart(data);
+      },
+    });
 
-  <?php if (strpos($_SERVER['REQUEST_URI'], '/admin') !== false) : ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js" integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.1/chartjs-adapter-moment.min.js" integrity="sha512-hVy4KxCKgnXi2ok7rlnlPma4JHXI1VPQeempoaclV1GwRHrDeaiuS1pI6DVldaj5oh6Opy2XJ2CTljQLPkaMrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <?php endif; ?>
+    function drawChart(data) {
+      let ctx = document.getElementById("productChart").getContext("2d");
+
+      let productInData = data.products_in.map((product) => ({
+        x: product.date_in,
+        y: product.quantity,
+      }));
+
+      let productOutData = data.products_out.map((product) => ({
+        x: product.date_out,
+        y: product.quantity,
+      }));
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          datasets: [{
+              label: "Produk Masuk",
+              data: productInData,
+              borderColor: "rgba(75, 192, 192, 1)",
+              fill: false,
+            },
+            {
+              label: "Produk Keluar",
+              data: productOutData,
+              borderColo: "rgba(255, 99, 132, 1)",
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              type: "time",
+              time: {
+                unit: "day",
+              },
+            },
+          },
+        },
+      });
+    }
+  </script>
 </body>
 
 </html>

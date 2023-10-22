@@ -23,8 +23,8 @@ class ProductIn extends BaseController
     public function index()
     {
         $data = [
-            'products_in' => $this->ProductInModel->joinProducts(),
-            'products' => $this->ProductModel->orderBy('product_name', 'asc')->findAll()
+            'products_in'   => $this->ProductInModel->joinProducts(),
+            'products'      => $this->ProductModel->orderBy('product_name', 'asc')->findAll(),
         ];
 
         return view('admin/barang_masuk', $data);

@@ -71,6 +71,8 @@
               type: "time",
               time: {
                 unit: "day",
+                min: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-01',
+                max: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
               },
             },
           },

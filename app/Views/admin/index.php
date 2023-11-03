@@ -10,11 +10,10 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h4 class="fw-bold">Riwayat Barang Keluar</h4>
+      <h4 class="fw-bold">Riwayat Barang Masuk</h4>
       <table class="table table-striped">
         <thead align="center">
           <tr class="text-uppercase fs-14">
-            <th scope="col">No</th>
             <th scope="col">Nama Produk</th>
             <th scope="col">Quantity</th>
             <th scope="col">Tanggal Masuk</th>
@@ -23,7 +22,6 @@
         <tbody align="center" class="fs-14">
           <?php foreach ($products_in as $product_in) : ?>
             <tr>
-              <td><?= $product_in['code_product_in'] ?></td>
               <td><?= $product_in['product_name'] ?></td>
               <td><?= $product_in['quantity'] ?></td>
               <td><?= $product_in['date_in'] ?></td>
@@ -37,7 +35,6 @@
       <table class="table table-striped">
         <thead align="center">
           <tr class="text-uppercase fs-14">
-            <th scope="col">No</th>
             <th scope="col">Nama Produk</th>
             <th scope="col">Quantity</th>
             <th scope="col">Tanggal Masuk</th>
@@ -46,7 +43,6 @@
         <tbody align="center" class="fs-14">
           <?php foreach ($products_out as $product_out) : ?>
             <tr>
-              <td><?= $product_out['code_product_out'] ?></td>
               <td><?= $product_out['product_name'] ?></td>
               <td><?= $product_out['quantity'] ?></td>
               <td><?= $product_out['date_out'] ?></td>

@@ -3,7 +3,6 @@
 <?= $this->section('content') ?>
 
 <div class="w-100 row align-items-center justify-content-between mx-auto z-0" style="min-height: 100vh; background-color: #fef3c7;">
-
   <div class="col col-lg-6 mx-auto px-4 px-md-5 py-6 py-md-0 text-center text-lg-start">
     <span class="emphasis lh-1">
       <h1 class="display-5 fw-bold" style="color: #d97706;">Cek Ketersediaan</h1>

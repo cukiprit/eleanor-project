@@ -18,6 +18,13 @@
         </div>
         <div class="modal-body">
           <form method="post" action="<?= base_url('/admin/barang_masuk') ?>">
+
+            <?php if (isset($validation)) : ?>
+              <div class="alert alert-danger" role="alert">
+                <?= $validation->listErrors() ?>
+              </div>
+            <?php endif ?>
+
             <div class="mb-3">
               <label for="Nama" class="form-label">Nama Barang</label>
               <select class="form-select" name="product_name">
@@ -26,17 +33,35 @@
                   <option value="<?= $product['product_code'] ?>"><?= $product['product_name'] ?></option>
                 <?php endforeach; ?>
               </select>
+
+              <?php if ($validation->hasError('product_name')) : ?>
+                <div class="alert alert-danger" role="alert">
+                  <?= $validation->getError('product_name') ?>
+                </div>
+              <?php endif; ?>
             </div>
 
             <div class="row mb-3">
               <div class="col-6">
                 <label for="Nama" class="form-label">Tanggal Barang Masuk</label>
                 <input type="date" name="date_in" class="form-control">
+
+                <?php if ($validation->hasError('date_in')) : ?>
+                  <div class="alert alert-danger" role="alert">
+                    <?= $validation->getError('date_in') ?>
+                  </div>
+                <?php endif; ?>
               </div>
 
               <div class="col-6">
                 <label for="Nama" class="form-label">Jumlah Barang Masuk</label>
                 <input type="number" name="quantity" class="form-control">
+
+                <?php if ($validation->hasError('quantity')) : ?>
+                  <div class="alert alert-danger" role="alert">
+                    <?= $validation->getError('quantity') ?>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
 

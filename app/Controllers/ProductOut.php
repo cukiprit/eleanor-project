@@ -11,6 +11,7 @@ class ProductOut extends BaseController
 {
     protected $ProductOutModel;
     protected $ProductModel;
+    protected $validation;
 
     public function __construct()
     {
@@ -18,12 +19,14 @@ class ProductOut extends BaseController
 
         $this->ProductOutModel = new ProductOutModel();
         $this->ProductModel = new ProductModel();
+        $this->validation = \Config\Services::validation();
     }
     public function index()
     {
         $data = [
             'products_out' => $this->ProductOutModel->joinProducts(),
-            'products' => $this->ProductModel->orderBy('product_name', 'asc')->findAll()
+            'products' => $this->ProductModel->orderBy('product_name', 'asc')->findAll(),
+            'validation' => $this->validation
         ];
 
         return view('admin/barang_keluar', $data);
@@ -44,9 +47,12 @@ class ProductOut extends BaseController
             'product_code' => $product_name
         ];
 
-        $this->ProductOutModel->insert($data);
+        if ($this->validate('product_out')) {
+            $this->ProductOutModel->insert($data);
 
-        return redirect('admin/barang_keluar');
+            return redirect('admin/barang_keluar');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function edit($code_product_out)
@@ -68,9 +74,12 @@ class ProductOut extends BaseController
             'product_code' => $product_name
         ];
 
-        $this->ProductOutModel->update($code_product_out, $data);
+        if ($this->validate('product_out')) {
+            $this->ProductOutModel->update($code_product_out, $data);
 
-        return redirect('admin/barang_keluar');
+            return redirect('admin/barang_keluar');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function delete_barang($code_product_out)

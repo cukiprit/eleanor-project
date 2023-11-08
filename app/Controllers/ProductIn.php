@@ -11,6 +11,7 @@ class ProductIn extends BaseController
 {
     protected $ProductModel;
     protected $ProductInModel;
+    protected $validation;
 
     public function __construct()
     {
@@ -18,6 +19,7 @@ class ProductIn extends BaseController
 
         $this->ProductInModel = new ProductInModel();
         $this->ProductModel = new ProductModel();
+        $this->validation = \Config\Services::validation();
     }
 
     public function index()
@@ -25,6 +27,7 @@ class ProductIn extends BaseController
         $data = [
             'products_in'   => $this->ProductInModel->joinProducts(),
             'products'      => $this->ProductModel->orderBy('product_name', 'asc')->findAll(),
+            'validation'    => $this->validation
         ];
 
         return view('admin/barang_masuk', $data);
@@ -45,9 +48,12 @@ class ProductIn extends BaseController
             'product_code' => $product_name
         ];
 
-        $this->ProductInModel->insert($data);
+        if ($this->validate('product_in')) {
+            $this->ProductInModel->insert($data);
 
-        return redirect('admin/barang_masuk');
+            return redirect('admin/barang_masuk');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function edit($code_product_in)
@@ -70,9 +76,12 @@ class ProductIn extends BaseController
             'product_code' => $product_name
         ];
 
-        $this->ProductInModel->update($code_product_in, $data);
+        if ($this->validate('product_in')) {
+            $this->ProductInModel->update($code_product_in, $data);
 
-        return redirect('admin/barang_masuk');
+            return redirect('admin/barang_masuk');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function delete_barang($code_product_in)

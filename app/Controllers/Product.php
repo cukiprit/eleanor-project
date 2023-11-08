@@ -46,9 +46,12 @@ class Product extends BaseController
             'product_price'         => $this->request->getPost('product_price'),
         ];
 
-        $this->ProductModel->insert($data);
+        if ($this->validate('product')) {
+            $this->ProductModel->insert($data);
 
-        return redirect('admin/tambah_barang');
+            return redirect('admin/tambah_barang');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function edit($product_code)
@@ -74,9 +77,12 @@ class Product extends BaseController
             'product_price'         => $this->request->getPost('product_price'),
         ];
 
-        $this->ProductModel->update($product_code, $data);
+        if ($this->validate('product')) {
+            $this->ProductModel->update($product_code, $data);
 
-        return redirect('admin/tambah_barang');
+            return redirect('admin/tambah_barang');
+        }
+        return redirect()->back()->withInput();
     }
 
     public function delete_barang($product_code)

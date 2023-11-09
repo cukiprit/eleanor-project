@@ -1,3 +1,6 @@
+$('.navbar-toggler').on('click', () => {
+  $('.navbar').toggleClass('bg-navbar-mobile')
+})
 // Jquery untuk tambah_barang
 $("#editModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);

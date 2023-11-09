@@ -9,20 +9,18 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5 py-3 py-lg-0">
+      <ul class="navbar-nav align-items-end align-items-lg-center me-auto mb-2 mb-lg-0 ps-lg-5 py-3 py-lg-0">
         <li class="nav-item">
-          <a href="<?= base_url("/") ?>"
-            class="nav-link active text-dark px-lg-4 mx-1 fs-17 hovering-navbar">Beranda</a>
+          <a href="<?= base_url("/") ?>" class="nav-link active px-lg-4 mx-1 fs-17 hovering-navbar">Beranda</a>
         </li>
         <li class="nav-item my-2 my-lg-0">
-          <a href="<?= base_url("/store") ?>" class="nav-link text-dark px-lg-4 mx-1 fs-17 hovering-navbar">Produk</a>
+          <a href="<?= base_url("/store") ?>" class="nav-link px-lg-4 mx-1 fs-17 hovering-navbar">Produk</a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url("/contact") ?>"
-            class="nav-link text-dark px-lg-4 mx-1 fs-17 hovering-navbar">Hubungi</a>
+          <a href="<?= base_url("/contact") ?>" class="nav-link px-lg-4 mx-1 fs-17 hovering-navbar">Hubungi</a>
         </li>
       </ul>
-      <div class="d-flex mb-2 mb-md-0">
+      <div class="d-flex justify-content-end mb-2 mb-md-0">
         <a href="<?= base_url("/login") ?>" style="background-color: #EE9322;"
           class="btn text-white px-lg-4 bg-dark-amber fs-16">Login</a>
       </div>

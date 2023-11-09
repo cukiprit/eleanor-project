@@ -8,12 +8,16 @@ li {
   font-weight: bold;
 }
 
-.nav-active {
-  background-color: var(--white-amber);
-  box-shadow: 0px 3px 5px rgba(223, 223, 223, 0.5);
-  animation: slide-down 0.5s ease forwards;
+.navbar .collapse:not(.show) li a {
+  color: #000;
 }
-
+.navbar .collapse:is(.show) li a {
+  color: #fff;
+}
+.bg-navbar-mobile {
+  /* background-color: #fdba74; */
+  background-color: var(--dark-amber);
+}
 /* store.php */
 
 .card-style {
@@ -44,22 +48,5 @@ li {
 @media (width <= 800px) {
   .card-style {
     width: 20rem;
-  }
-}
-
-@media (width <= 400px) {
-  /* .py-6 {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-  } */
-}
-
-/* ANIMATION */
-@keyframes slide-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: fit-content;
   }
 }

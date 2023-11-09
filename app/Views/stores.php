@@ -1,7 +1,7 @@
 <?= $this->extend('layout/page_layout') ?>
 
 <?= $this->section('content') ?>
-<div class="m-0 my-5 pt-5 px-4 px-md-5">
+<div class="min-vh-100 m-0 my-5 pt-5 px-4 px-md-5">
   <div class="text-center mb-5">
     <h2 class="fw-bold">Daftar Barang Tersedia</h2>
     <p class="fs-17">List barang yang tersedia di gudang dan dapat dicek ketersediaan barang sesuai filter barang</p>

@@ -13,7 +13,8 @@
         <p class="fw-bold text-secondary m-0 me-3">SORT BY</p>
         <div class="d-flex align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Jumlah Stok
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -23,7 +24,8 @@
             </ul>
           </div>
           <div class="btn-group">
-            <button type="button" class="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Harga Barang
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -41,20 +43,21 @@
 
       <div class="d-flex flex-wrap justify-content-center">
         <?php foreach ($products as $product) : ?>
-          <div class="h-100 p-2 my-2 card-style">
-            <a href="<?= base_url("/store/" . $product['product_code']) ?>" class="text-decoration-none card-style">
-              <div class="w-100 p-1" style="height: 250px;">
-                <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>" class="w-100 h-100 radius-10">
-              </div>
-              <div class="card-body p-2 radius-15">
-                <p class="card-title text-capitalize m-0 fs-17">
-                  <?= $product['product_name'] ?>
-                </p>
-                <p class="card-text my-1 text-danger fs-17">Rp
-                  <?= $product['product_price'] ?></p>
-              </div>
-            </a>
-          </div>
+        <div class="h-100 p-2 my-2 card-style">
+          <a href="<?= base_url("/store/" . $product['product_code']) ?>" class="text-decoration-none card-style">
+            <div class="w-100 p-1" style="height: 250px;">
+              <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>"
+                class="w-100 h-100 radius-10">
+            </div>
+            <div class="card-body p-2 radius-15">
+              <p class="card-title text-capitalize m-0 fs-17">
+                <?= $product['product_name'] ?>
+              </p>
+              <p class="card-text my-1 text-danger fs-17">Rp
+                <?= $product['product_price'] ?></p>
+            </div>
+          </a>
+        </div>
         <?php endforeach; ?>
       </div>
     </div>

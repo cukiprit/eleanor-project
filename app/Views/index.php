@@ -2,8 +2,9 @@
 
 <?= $this->section('content') ?>
 
-<div class="w-100 row align-items-center justify-content-between mx-auto z-0 pb-5" style="min-height: 100vh; background-color: #fef3c7;">
-  <div class="col col-lg-6 mx-auto px-4 px-md-5 py-6 py-md-0 text-center text-lg-start">
+<div class="homepage-style w-100 position-relative row align-items-center justify-content-between mx-auto z-0">
+  <div class="bg-image position-absolute"></div>
+  <div class="col col-lg-6 headline mx-auto px-4 px-md-5 py-5 py-md-0 text-center text-lg-start">
     <span class="emphasis lh-1">
       <h1 class="display-5 fw-bold" style="color: #d97706;">Cek Ketersediaan</h1>
       <h1 class="display-5 fw-bold">Barang di Gudang Kami</h1>
@@ -21,7 +22,8 @@
 
   <div class="col-lg-5 p-0 d-none d-lg-block">
     <div class="position-relative">
-      <img src="<?= base_url("img/eduardo-soares-y39ElnSaZxc-unsplash.jpg") ?>" class="d-block w-100" style="object-fit: cover; height:100vh; object-position: 35%; filter: brightness(0.5);" alt="...">
+      <img src="<?= base_url("img/eduardo-soares-y39ElnSaZxc-unsplash.jpg") ?>" class="d-block w-100"
+        style="object-fit: cover; height:100vh; object-position: 35%; filter: brightness(0.5);" alt="...">
       <div class="position-absolute bottom-0 text-white m-5 border-bottom border-2">
         <h1 class="fs-2 fw-bold">Nike Shoes</h1>
         <p class="fs-22">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>

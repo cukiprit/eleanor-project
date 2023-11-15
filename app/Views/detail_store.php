@@ -10,8 +10,8 @@
   </div>
 
   <div class="row flex-column flex-lg-row py-2 mx-0" style="min-height: 75vh;">
-    <div class="col col-lg-6 p-0 mb-3 m-auto" style="height: 450px;">
-      <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>" class="w-100 h-100 rounded">
+    <div class="col col-lg-6 p-0 mb-3 m-auto text-center" style="height: 450px;">
+      <img src="<?= $product['product_picture'] ?>" alt="<?= $product['product_name'] ?>" class="h-100 rounded">
     </div>
     <div class="col p-sm-0 p-lg-4">
       <h1 class="card-title text-capitalize">Sepatu Nike</h1>
@@ -24,7 +24,8 @@
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item border-top bg-transparent">
           <h2 class="accordion-header bg-transparent">
-            <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               <p class="fs-17 m-0">Harga Barang</p>
             </button>
           </h2>
@@ -37,7 +38,8 @@
 
         <div class="accordion-item border-bottom bg-transparent">
           <h2 class="accordion-header bg-transparent">
-            <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
               <p class="fs-17 m-0">Total Stok Barang</p>
             </button>
           </h2>

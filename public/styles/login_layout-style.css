@@ -1,0 +1,22 @@
+.bg-image {
+  background: #ffffff url(../img/1160.jpg) center center/cover no-repeat;
+}
+
+.login-clip_path {
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+.signup-clip_path {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+form {
+  width: 75% !important;
+}
+
+@media (width <= 700px) {
+  .logo-login {
+    width: 100px;
+  }
+  form {
+    width: 100% !important;
+  }
+}

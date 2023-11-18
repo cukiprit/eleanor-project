@@ -1,6 +1,13 @@
 $('.navbar-toggler').on('click', () => {
   $('.navbar').toggleClass('bg-navbar-mobile')
 })
+
+$(document).on('scroll', () => {
+  (window.scrollY > 0) ?
+    $('.navbar').addClass('scrolling-navbar') :
+    $('.navbar').removeClass('scrolling-navbar')
+})
+
 // Jquery untuk tambah_barang
 $("#editModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);

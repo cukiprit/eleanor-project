@@ -29,7 +29,7 @@ class ProductOut extends Migration
         ]);
 
         $this->forge->addKey('code_product_out', true);
-        $this->forge->addForeignKey('product_code', 'products', 'product_code');
+        $this->forge->addForeignKey('product_code', 'products', 'product_code', 'CASCADE', 'CASCADE');
         $this->forge->createTable('product_out');
     }
 

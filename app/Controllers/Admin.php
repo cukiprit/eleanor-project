@@ -26,6 +26,7 @@ class Admin extends BaseController
             'products_out'  => $this->ProductOutModel->joinProducts(),
         ];
 
+        // return view('master_admin/index', $data);
         return view('admin/index', $data);
     }
 

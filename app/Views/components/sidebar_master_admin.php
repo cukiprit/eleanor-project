@@ -14,33 +14,9 @@
         <li class="nav-item w-100">
           <a href="<?= base_url("/admin") ?>" class="nav-link align-middle text-white px-0 py-3">
             <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-gauge fs-5"></i>
+              <i class="fas fa-user fs-6"></i>
             </span>
-            <span class="d-none d-md-inline">Statistik</span>
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-boxes-stacked fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Manajemen data</span>
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-box-open fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Barang Masuk</span>
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-box-archive fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Barang Keluar</span>
+            <span class="d-none d-md-inline">Manajemen Admin</span>
           </a>
         </li>
       </ul>

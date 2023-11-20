@@ -28,7 +28,8 @@ class Product extends Migration
             'product_stock' => [
                 'type' => 'INT',
                 'constraint' => 5,
-                'unsigned' => true
+                'unsigned' => true,
+                'default' => 0
             ],
             'product_price' => [
                 'type' => 'DECIMAL',

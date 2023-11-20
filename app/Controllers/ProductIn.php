@@ -45,6 +45,14 @@ class ProductIn extends BaseController
             'product_code' => $product_name
         ];
 
+        $stock = $this->ProductModel->where('product_code', $product_name)->first();
+
+        $updatedData = [
+            'product_stock' => $stock['product_stock'] + $quantity
+        ];
+
+        $this->ProductModel->update($product_name, $updatedData);
+
         $this->ProductInModel->insert($data);
 
         return redirect('admin/barang_masuk');

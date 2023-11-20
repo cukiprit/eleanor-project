@@ -70,7 +70,6 @@ class Product extends BaseController
             'product_name'          => $this->request->getPost('product_name'),
             'product_description'   => $this->request->getPost('product_description'),
             'product_picture'       => $newName,
-            'product_stock'         => $this->request->getPost('product_stock'),
             'product_price'         => $this->request->getPost('product_price'),
         ];
 

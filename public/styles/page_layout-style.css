@@ -8,12 +8,20 @@ li {
   font-weight: bold;
 }
 
-.nav-active {
-  background-color: var(--white-amber);
-  box-shadow: 0px 3px 5px rgba(223, 223, 223, 0.5);
-  animation: slide-down 0.5s ease forwards;
+.navbar .collapse:not(.show) li a {
+  color: #000;
 }
-
+.navbar .collapse:is(.show) li a {
+  color: #fff;
+}
+.bg-navbar-mobile {
+  background-color: var(--dark-amber);
+}
+/* index.php */
+.homepage-style {
+  min-height: 100vh;
+  background-color: #fef3c7;
+}
 /* store.php */
 
 .card-style {
@@ -42,24 +50,25 @@ li {
 
 /* MEDIA SCREEN */
 @media (width <= 800px) {
+  /* store */
   .card-style {
     width: 20rem;
   }
 }
 
-@media (width <= 400px) {
-  /* .py-6 {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-  } */
-}
-
-/* ANIMATION */
-@keyframes slide-down {
-  from {
-    height: 0;
+@media screen and (width <= 1000px) {
+  /* index.php */
+  .homepage-style {
+    background-color: transparent;
+    color: #fff;
   }
-  to {
-    height: fit-content;
+
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    background: #ffffff url(../img/eduardo-soares-y39ElnSaZxc-unsplash.jpg)
+      center center/cover no-repeat;
+    filter: brightness(0.7);
+    z-index: -1;
   }
 }

@@ -48,6 +48,22 @@ class ProductIn extends BaseController
             'product_code' => $product_name
         ];
 
+        $stock = $this->ProductModel->where('product_code', $product_name)->first();
+
+        $updatedData = [
+            'product_stock' => $stock['product_stock'] + $quantity
+        ];
+
+        $this->ProductModel->update($product_name, $updatedData);
+
+        $stock = $this->ProductModel->where('product_code', $product_name)->first();
+
+        $updatedData = [
+            'product_stock' => $stock['product_stock'] + $quantity
+        ];
+
+        $this->ProductModel->update($product_name, $updatedData);
+
         if ($this->validate('product_in')) {
             $this->ProductInModel->insert($data);
 

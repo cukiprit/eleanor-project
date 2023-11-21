@@ -73,7 +73,6 @@ class Product extends BaseController
             'product_name'          => $this->request->getPost('product_name'),
             'product_description'   => $this->request->getPost('product_description'),
             'product_picture'       => $newName,
-            'product_stock'         => $this->request->getPost('product_stock'),
             'product_price'         => $this->request->getPost('product_price'),
         ];
 
@@ -87,12 +86,12 @@ class Product extends BaseController
 
     public function delete_barang($product_code)
     {
-        $deleted_image = $this->ProductModel->select('product_picture')->where('product_code', $product_code)->first();
-        $file_name = $deleted_image->product_picture;
+        // $deleted_image = $this->ProductModel->select('product_picture')->where('product_code', $product_code)->first();
+        // $file_name = $deleted_image->product_picture;
 
-        if (file_exists(FCPATH . 'uploads/img/' . $file_name)) {
-            unlink(FCPATH . 'uploads/img/' . $file_name);
-        }
+        // if (file_exists(FCPATH . 'uploads/img/' . $file_name)) {
+        //     unlink(FCPATH . 'uploads/img/' . $file_name);
+        // }
 
         $deleted = $this->ProductModel->delete($product_code);
 

@@ -10,7 +10,7 @@
   <div class="row w-fit mx-auto rounded bg-white shadow">
     <div class="col-4 p-4 m-2 bg-dark-amber rounded text-white">
       <p class="fw-bold fs-17 m-0 mb-3">Informasi Sosial Media</p>
-      <p class="m-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum</p>
+      <p class="m-0">Kami hadir untuk menjadi mitra sebagai solusi pertumbuhan bisnis anda</p>
       <ul class="list-group mt-3">
         <li class="list-group-item bg-dark-amber border-0">
           <a href="" class="d-flex btn text-white fs-17">

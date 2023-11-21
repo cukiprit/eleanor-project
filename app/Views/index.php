@@ -23,8 +23,8 @@
     <div class="position-relative">
       <img src="<?= base_url("img/eduardo-soares-y39ElnSaZxc-unsplash.jpg") ?>" class="d-block w-100" style="object-fit: cover; height:100vh; object-position: 35%; filter: brightness(0.5);" alt="...">
       <div class="position-absolute bottom-0 text-white m-5 border-bottom border-2">
-        <h1 class="fs-2 fw-bold">Nike Shoes</h1>
-        <p class="fs-22">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <h1 class="fs-2 fw-bold">Eleanor</h1>
+        <p class="fs-22">Bisnis kreatif digital di bidang marketing digital baik berupa jasa dan produk. Silahkan klik menu layanan untuk mengetahui produk dan jasa kami</p>
       </div>
     </div>
   </div>

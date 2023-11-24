@@ -47,7 +47,6 @@ class ProductIn extends BaseController
             'quantity' => $quantity,
             'product_code' => $product_name
         ];
-
         $stock = $this->ProductModel->where('product_code', $product_name)->first();
 
         $updatedData = [
@@ -58,26 +57,7 @@ class ProductIn extends BaseController
 
         $this->ProductInModel->insert($data);
 
-        $updatedData = [
-            'product_stock' => $stock['product_stock'] + $quantity
-        ];
-
-        $this->ProductModel->update($product_name, $updatedData);
-
-        $stock = $this->ProductModel->where('product_code', $product_name)->first();
-
-        $updatedData = [
-            'product_stock' => $stock['product_stock'] + $quantity
-        ];
-
-        $this->ProductModel->update($product_name, $updatedData);
-
-        if ($this->validate('product_in')) {
-            $this->ProductInModel->insert($data);
-
-            return redirect('admin/barang_masuk');
-        }
-        return redirect()->back()->withInput();
+        return redirect('admin/barang_masuk');
     }
 
     public function edit($code_product_in)
@@ -100,12 +80,9 @@ class ProductIn extends BaseController
             'product_code' => $product_name
         ];
 
-        if ($this->validate('product_in')) {
-            $this->ProductInModel->update($code_product_in, $data);
+        $this->ProductInModel->update($code_product_in, $data);
 
-            return redirect('admin/barang_masuk');
-        }
-        return redirect()->back()->withInput();
+        return redirect('admin/barang_masuk');
     }
 
     public function delete_barang($code_product_in)

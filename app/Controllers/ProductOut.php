@@ -57,26 +57,7 @@ class ProductOut extends BaseController
 
         $this->ProductOutModel->insert($data);
 
-        $updatedData = [
-            'product_stock' => $stock['product_stock'] - $quantity
-        ];
-
-        $this->ProductModel->update($product_name, $updatedData);
-
-        $stock = $this->ProductModel->where('product_code', $product_name)->first();
-
-        $updatedData = [
-            'product_stock' => $stock['product_stock'] - $quantity
-        ];
-
-        $this->ProductModel->update($product_name, $updatedData);
-
-        if ($this->validate('product_out')) {
-            $this->ProductOutModel->insert($data);
-
-            return redirect('admin/barang_keluar');
-        }
-        return redirect()->back()->withInput();
+        return redirect('admin/barang_keluar');
     }
 
     public function edit($code_product_out)
@@ -98,12 +79,9 @@ class ProductOut extends BaseController
             'product_code' => $product_name
         ];
 
-        if ($this->validate('product_out')) {
-            $this->ProductOutModel->update($code_product_out, $data);
+        $this->ProductOutModel->update($code_product_out, $data);
 
-            return redirect('admin/barang_keluar');
-        }
-        return redirect()->back()->withInput();
+        return redirect('admin/barang_keluar');
     }
 
     public function delete_barang($code_product_out)

@@ -18,13 +18,6 @@
         </div>
         <div class="modal-body">
           <form method="post" action="<?= base_url('/admin/barang_masuk') ?>">
-
-            <?php if (isset($validation)) : ?>
-              <div class="alert alert-danger" role="alert">
-                <?= $validation->listErrors() ?>
-              </div>
-            <?php endif ?>
-
             <div class="mb-3">
               <label for="Nama" class="form-label">Nama Barang</label>
               <select class="form-select" name="product_name">

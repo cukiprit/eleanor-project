@@ -12,6 +12,22 @@
 
       <ul class="nav nav-pills flex-column mt-4 align-items-center align-items-sm-start w-100" id="menu">
         <li class="nav-item w-100">
+          <a href="<?= base_url("/admin/user") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-users fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Dashboard User</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a href="<?= base_url("/admin/tambah_user") ?>" class="nav-link align-middle text-white px-0 py-3">
+            <span class="d-inline-block" style="width: 2rem;">
+              <i class="fa-solid fa-user fs-5"></i>
+            </span>
+            <span class="d-none d-md-inline">Manajemen User</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
           <a href="<?= base_url("/admin") ?>" class="nav-link align-middle text-white px-0 py-3">
             <span class="d-inline-block" style="width: 2rem;">
               <i class="fa-solid fa-gauge fs-5"></i>

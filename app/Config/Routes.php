@@ -25,6 +25,12 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/admin', 'Admin::index', ['filter' => 'authGuard']);
 $routes->get('/admin/get-chart', 'Admin::chart', ['filter' => 'authGuard']);
 
+$routes->get('/admin/user', 'User::index', ['filter' => 'authGuard']);
+$routes->get('/admin/tambah_user', 'User::user', ['filter' => 'authGuard']);
+$routes->post('/admin/tambah_user', 'User::create', ['filter' => 'authGuard']);
+$routes->get('/admin/edit_user/(:any)', 'User::edit/$1', ['filter' => 'authGuard']);
+$routes->post('/admin/edit_user/(:any)', 'User::edit_data/$1', ['filter' => 'authGuard']);
+
 // Admin Barang
 $routes->get('/admin/tambah_barang', 'Product::index', ['filter' => 'authGuard']);
 $routes->post('/admin/tambah_barang', 'Product::create', ['filter' => 'authGuard']);

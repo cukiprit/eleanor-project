@@ -10,7 +10,7 @@
   </div>
   <table class="table table-bordered">
     <thead>
-      <tr class="fs-15">
+      <tr class="fs-15" align="center">
         <th scope="col" style="width: 200px;">No</th>
         <th scope="col">Nama Produk</th>
         <th scope="col">Quantity</th>
@@ -20,21 +20,20 @@
     </thead>
     <tbody>
       <?php foreach ($products_in as $product_in) : ?>
-      <tr class="fs-15" style="vertical-align: middle;">
-        <td class="d-inline-block text-truncate border-start border-0"
-          style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
+      <tr class="border fs-15" style="vertical-align: middle;">
+        <td class="d-inline-block text-truncate border-0" style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
           <?= $product_in['code_product_in'] ?></td>
-        <td><?= $product_in['product_name'] ?></td>
-        <td><?= $product_in['quantity'] ?></td>
-        <td><?= $product_in['date_in'] ?></td>
-        <td>
-          <button type="button" class="btn btn-danger fs-14" data-bs-toggle="modal"
-            data-bs-target="#hapusProdukMasukModal"
-            data-product-code="<?= $product_in['code_product_in'] ?>">Hapus</button>
+        <td style="max-width: 300px;"><?= $product_in['product_name'] ?></td>
+        <td align="center"><?= $product_in['quantity'] ?></td>
+        <td align="center"><?= $product_in['date_in'] ?></td>
+        <td align="center">
           <button type="button" class="btn btn-warning fs-14 text-white" data-bs-toggle="modal"
             data-bs-target="#editProdukMasukModal" data-product-code="<?= $product_in['code_product_in'] ?>">
             Edit
           </button>
+          <button type="button" class="btn btn-danger fs-14" data-bs-toggle="modal"
+            data-bs-target="#hapusProdukMasukModal"
+            data-product-code="<?= $product_in['code_product_in'] ?>">Hapus</button>
         </td>
       </tr>
       <!-- Modal Edit -->

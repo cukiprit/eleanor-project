@@ -1,7 +1,7 @@
 <?= $this->extend('layout/page_layout') ?>
 
 <?= $this->section('content') ?>
-<div class="px-4 px-lg-5" style="min-height: 100vh;background-color: #fef3c7;padding-top: 6rem;padding-bottom: 6rem;">
+<div class="p-4 px-lg-5 d-flex flex-column justify-content-center" style="min-height: 100vh;background-color: #fef3c7;">
   <div class="text-center mt-2 mb-4">
     <h2 class="fw-bold">Lorem ipsum dolor sit amet.</h2>
     <p class="lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, incidunt</p>

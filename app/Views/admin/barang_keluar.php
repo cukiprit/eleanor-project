@@ -11,7 +11,7 @@
 
   <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr align="center">
         <th scope="col" style="width: 200px;">No</th>
         <th scope="col">Nama Produk</th>
         <th scope="col">Quantity</th>
@@ -21,14 +21,13 @@
     </thead>
     <tbody>
       <?php foreach ($products_out as $product_out) : ?>
-      <tr class="fs-15" style="vertical-align: middle;">
-        <td class="d-inline-block text-truncate border-start border-0"
-          style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
+      <tr class="border fs-15" style="vertical-align: middle;">
+        <td class="d-inline-block text-truncate border-0" style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
           <?= $product_out['code_product_out'] ?></td>
         <td><?= $product_out['product_name'] ?></td>
-        <td><?= $product_out['quantity'] ?></td>
-        <td><?= $product_out['date_out'] ?></td>
-        <td>
+        <td align="center"><?= $product_out['quantity'] ?></td>
+        <td align="center"><?= $product_out['date_out'] ?></td>
+        <td align="center">
           <button type="button" class="btn btn-danger fs-14" data-bs-toggle="modal"
             data-bs-target="#hapusProdukKeluarModal"
             data-product-code="<?= $product_out['code_product_out'] ?>">Hapus</button>

@@ -10,7 +10,7 @@
   </div>
   <table class="table table-bordered">
     <thead>
-      <tr class="fs-15">
+      <tr class="fs-15" align="center">
         <th scope="col" style="width: 200px;">No</th>
         <th scope="col">Nama Produk</th>
         <th scope="col">Quantity</th>
@@ -20,21 +20,20 @@
     </thead>
     <tbody>
       <?php foreach ($products as $product) : ?>
-      <tr class="fs-15" style="vertical-align: middle;">
-        <td class="d-inline-block text-truncate border-start border-0"
-          style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
+      <tr class="border fs-15" style="vertical-align: middle;">
+        <td class="d-inline-block text-truncate border-0" style="max-width: 200px; height: 3.2rem; padding: 8% 8px;">
           <?= $product['product_code'] ?></td>
-        <td><?= $product['product_name'] ?></td>
-        <td><?= $product['product_stock'] ?></td>
-        <td>Rp. <?= $product['product_price'] ?></td>
-        <td>
-          <button type="button" class="btn btn-danger fs-14" data-bs-toggle="modal" data-bs-target="#hapusProdukModal"
-            data-product-code="<?= $product['product_code'] ?>">
-            Hapus
-          </button>
+        <td style="max-width: 300px;"><?= $product['product_name'] ?></td>
+        <td align="center"><?= $product['product_stock'] ?></td>
+        <td align="center">Rp. <?= $product['product_price'] ?></td>
+        <td align="center">
           <button type="button" class="btn btn-warning fs-14 text-white" data-bs-toggle="modal"
             data-bs-target="#editModal" data-product-code="<?= $product['product_code'] ?>">
             Edit
+          </button>
+          <button type="button" class="btn btn-danger fs-14" data-bs-toggle="modal" data-bs-target="#hapusProdukModal"
+            data-product-code="<?= $product['product_code'] ?>">
+            Hapus
           </button>
         </td>
       </tr>

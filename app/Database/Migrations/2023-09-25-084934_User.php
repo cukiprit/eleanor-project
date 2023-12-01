@@ -23,6 +23,10 @@ class User extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100'
             ],
+            'role' => [
+                'type' => 'ENUM',
+                'constraint' => array('Super-Admin', 'Admin-1', 'Admin-2'),
+            ],
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255'

@@ -1,3 +1,49 @@
+// Jquery user
+$("#editUserModal").on("show.bs.modal", function (event) {
+  let button = $(event.relatedTarget);
+  let user_id = button.data("user-id");
+
+  let modal = $(this);
+
+  $.ajax({
+    url: `/admin/edit_user/${user_id}`,
+    method: "GET",
+    dataType: "json",
+
+    success: function (data) {
+      console.log(data);
+      modal.find('input[name="name"]').val(data.name);
+      modal.find('input[name="email"]').val(data.email);
+      modal.find('select[name="role"]').val(data.role);
+    },
+  });
+});
+
+$("#hapusUserModal").on("show.bs.modal", function (event) {
+  let button = $(event.relatedTarget);
+  let user_id = button.data("user-id");
+
+  let modal = $(this);
+  modal.find("#hapusUser").data("user-id", user_id);
+});
+
+$("#hapusUser").click(function () {
+  let user_id = $(this).data("user-id");
+  $.ajax({
+    url: `/admin/hapus_user/${user_id}`,
+    method: "DELETE",
+    success: function (result) {
+      if (result.success) {
+        setTimeout(function () {
+          $("#hapusUserModal").modal("hide");
+          location.reload();
+        }, 500);
+      }
+    },
+  });
+});
+// Batas Jquery user
+
 // Jquery untuk tambah_barang
 $("#editModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);

@@ -22,7 +22,8 @@ class SignUp extends BaseController
             'name' => 'required|min_length[3]|max_length[50]',
             'email' => 'required|valid_email',
             'password' => 'required|min_length[3]|max_length[50]',
-            'confirm_password' => 'matches[password]'
+            'confirm_password' => 'matches[password]',
+            'role' => 'required',
         ]);
 
         if ($this->request->getServer('REQUEST_METHOD') == 'POST') {
@@ -36,6 +37,7 @@ class SignUp extends BaseController
                     'user_id' => $faker->uuid(),
                     'name' => $this->request->getPost('name'),
                     'email' => $this->request->getPost('email'),
+                    'role' => $this->request->getPost('role'),
                     'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                 ];
 

@@ -43,7 +43,8 @@ class Login extends BaseController
                     $ses_data = [
                         'id' => $data['user_id'],
                         'name' => $data['name'],
-                        'isLoggedIn' => TRUE
+                        'isLoggedIn' => TRUE,
+                        'role' => $data['role']
                     ];
                     $session->set($ses_data);
                     return redirect('admin');

@@ -38,6 +38,14 @@
         <label for="confirm_password" class="form-label">Konfirmasi Password</label>
         <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
       </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select name="role" id="role" class="form-select">
+          <option selected>Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Super-Admin">Super-Admin</option>
+        </select>
+      </div>
       <div class="mt-4">
         <button type="submit" class="btn text-white text-uppercase w-100" style="background-color: #FF9D08;">Sign
           up</button>

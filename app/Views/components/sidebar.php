@@ -11,22 +11,18 @@
       </div>
 
       <ul class="nav nav-pills flex-column mt-4 align-items-center align-items-sm-start w-100" id="menu">
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/user") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-users fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Dashboard User</span>
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/tambah_user") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-user fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Manajemen User</span>
-          </a>
-        </li>
+
+        <?php if (session()->get('role') == 'Super-Admin') : ?>
+          <li class="nav-item w-100">
+            <a href="<?= base_url("/admin/user") ?>" class="nav-link align-middle text-white px-0 py-3">
+              <span class="d-inline-block" style="width: 2rem;">
+                <i class="fa-solid fa-users fs-5"></i>
+              </span>
+              <span class="d-none d-md-inline">Dashboard User</span>
+            </a>
+          </li>
+        <?php endif ?>
+
         <li class="nav-item w-100">
           <a href="<?= base_url("/admin") ?>" class="nav-link align-middle text-white px-0 py-3">
             <span class="d-inline-block" style="width: 2rem;">
@@ -35,6 +31,7 @@
             <span class="d-none d-md-inline">Statistik</span>
           </a>
         </li>
+
         <li class="nav-item w-100">
           <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle text-white px-0 py-3">
             <span class="d-inline-block" style="width: 2rem;">
@@ -43,24 +40,31 @@
             <span class="d-none d-md-inline">Manajemen data</span>
           </a>
         </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-box-open fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Barang Masuk</span>
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-box-archive fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Barang Keluar</span>
-          </a>
-        </li>
+
+        <?php if (session()->get('role') == 'Admin-1' || session()->get('role') == 'Super-Admin') : ?>
+          <li class="nav-item w-100">
+            <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle text-white px-0 py-3">
+              <span class="d-inline-block" style="width: 2rem;">
+                <i class="fa-solid fa-box-open fs-5"></i>
+              </span>
+              <span class="d-none d-md-inline">Barang Masuk</span>
+            </a>
+          </li>
+        <?php endif ?>
+
+        <?php if (session()->get('role') == 'Admin-1' || session()->get('role') == 'Super-Admin') : ?>
+          <li class="nav-item w-100">
+            <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle text-white px-0 py-3">
+              <span class="d-inline-block" style="width: 2rem;">
+                <i class="fa-solid fa-box-archive fs-5"></i>
+              </span>
+              <span class="d-none d-md-inline">Barang Keluar</span>
+            </a>
+          </li>
+        <?php endif ?>
       </ul>
     </div>
+
     <div class="w-100">
       <button class="nav-item w-100 btn p-0 bg-danger text-start">
         <a href="<?= base_url("/logout") ?>" class="nav-link align-middle text-white px-3 py-2">

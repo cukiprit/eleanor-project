@@ -137,7 +137,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="hapusProduk" class="btn btn-danger">Hapus Data</button>
+                <button type="button" id="hapusProduk" class="btn btn-danger" data-product-code="<?= $product['product_code'] ?>">Hapus Data</button>
               </div>
             </div>
           </div>

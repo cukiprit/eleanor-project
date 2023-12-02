@@ -90,7 +90,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?= base_url('/admin/edit_barang_masuk/') . $product_in['code_product_in'] ?>">
+                <form method="post" id="formEdit" action="<?= base_url('/admin/edit_barang_masuk/') . $product_in['code_product_in'] ?>">
                   <div class="mb-3">
                     <label for="Nama" class="form-label">Nama Barang</label>
                     <select class="form-select" name="product_name">
@@ -116,7 +116,7 @@
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success">Tambah</button>
+                    <button type="submit" class="btn btn-success" data-product-code="<?= $product_in['code_product_in'] ?>">Edit</button>
                   </div>
                 </form>
               </div>

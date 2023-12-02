@@ -40,7 +40,7 @@
                     <div class="mb-3">
                       <label for="role" class="form-label">Role</label>
                       <select class="form-select" aria-label="Default select example" id="role" name="role">
-                        <option selected>Pilih Role</option>
+                        <option value="Super-Admin">Pilih Role</option>
                         <option value="Super-Admin">Super Admin</option>
                         <option value="Admin-1">Admin-1</option>
                         <option value="Admin-2">Admin-2</option>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="hapusUser" class="btn btn-danger">Hapus</button>
+                  <button type="button" id="hapusUser" class="btn btn-danger" data-user-id="<?= $user['user_id'] ?>">Hapus</button>
                 </div>
               </div>
             </div>

@@ -3,7 +3,10 @@ $("#editUserModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);
   let user_id = button.data("user-id");
 
+  console.log(user_id);
   let modal = $(this);
+
+  modal.find("#formEdit").attr("action", `/admin/edit_user/${user_id}`);
 
   $.ajax({
     url: `/admin/edit_user/${user_id}`,
@@ -24,11 +27,12 @@ $("#hapusUserModal").on("show.bs.modal", function (event) {
   let user_id = button.data("user-id");
 
   let modal = $(this);
-  modal.find("#hapusUser").data("user-id", user_id);
+  modal.data("user-id", user_id);
 });
 
 $("#hapusUser").click(function () {
   let user_id = $(this).data("user-id");
+  console.log(user_id);
   $.ajax({
     url: `/admin/hapus_user/${user_id}`,
     method: "DELETE",
@@ -49,13 +53,17 @@ $("#editModal").on("show.bs.modal", function (event) {
   let button = $(event.relatedTarget);
   let productCode = button.data("product-code");
 
+  console.log(productCode);
   let modal = $(this);
+
+  modal.find("#formEdit").attr("action", `/admin/edit_barang/${productCode}`);
 
   $.ajax({
     url: `/admin/edit_barang/${productCode}`,
     method: "GET",
     dataType: "json",
     success: function (data) {
+      console.log(data);
       modal.find('input[name="product_name"]').val(data.product_name);
       modal.find('input[name="product_price"]').val(data.product_price);
       modal.find('input[name="product_stock"]').val(data.product_stock);
@@ -72,7 +80,7 @@ $("#hapusProdukModal").on("show.bs.modal", function (event) {
   let productCode = button.data("product-code");
 
   let modal = $(this);
-  modal.find("#hapusProduk").data("product-code", productCode);
+  modal.data("product-code", productCode);
 });
 
 $("#hapusProduk").click(function () {
@@ -102,6 +110,10 @@ $("#editProdukMasukModal").on("show.bs.modal", function (event) {
 
   let modal = $(this);
 
+  modal
+    .find("#formEdit")
+    .attr("action", `/admin/edit_barang_masuk/${productCode}`);
+
   $.ajax({
     url: `/admin/edit_barang_masuk/${productCode}`,
     method: "GET",
@@ -119,7 +131,7 @@ $("#hapusProdukMasukModal").on("show.bs.modal", function (event) {
   let productCode = button.data("product-code");
 
   let modal = $(this);
-  modal.find("#hapusProdukMasuk").data("product-code", productCode);
+  modal.data("product-code", productCode);
 });
 
 $("#hapusProdukMasuk").click(function () {
@@ -149,6 +161,10 @@ $("#editProdukKeluarModal").on("show.bs.modal", function (event) {
 
   let modal = $(this);
 
+  modal
+    .find("#formEdit")
+    .attr("action", `/admin/edit_barang_keluar/${productCode}`);
+
   $.ajax({
     url: `/admin/edit_barang_keluar/${productCode}`,
     method: "GET",
@@ -166,7 +182,7 @@ $("#hapusProdukKeluarModal").on("show.bs.modal", function (event) {
   let productCode = button.data("product-code");
 
   let modal = $(this);
-  modal.find("#hapusProdukKeluar").data("product-code", productCode);
+  modal.data("product-code", productCode);
 });
 
 $("#hapusProdukKeluar").click(function () {

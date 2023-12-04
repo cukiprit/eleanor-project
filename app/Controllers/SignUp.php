@@ -34,11 +34,10 @@ class SignUp extends BaseController
                 $faker = Factory::create();
 
                 $data = [
-                    'user_id' => $faker->uuid(),
                     'name' => $this->request->getPost('name'),
                     'email' => $this->request->getPost('email'),
                     'role' => $this->request->getPost('role'),
-                    'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                    'password' => password_hash((string) $this->request->getPost('password'), PASSWORD_DEFAULT),
                 ];
 
                 $model->insert($data);

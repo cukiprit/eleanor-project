@@ -31,7 +31,7 @@ class Login extends BaseController
         if ($isDataValid) {
             $model = new UserModel();
             $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
+            $password = (string) $this->request->getPost('password');
 
             $data = $model->where('email', $email)->first();
 

@@ -28,7 +28,7 @@ class User extends BaseController
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
             'role' => $this->request->getPost('role'),
-            'password' => password_hash($this->request->getPost('passowrd'), PASSWORD_DEFAULT)
+            'password' => password_hash((string) $this->request->getPost('password'), PASSWORD_DEFAULT)
         ];
 
         $this->UserModel->insert($data);

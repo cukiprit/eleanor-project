@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\AdminOneAccess;
+use App\Filters\AdminTwoAccess;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -9,6 +11,7 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AuthGuard;
+use App\Filters\SuperAdminAccess;
 
 class Filters extends BaseConfig
 {
@@ -20,12 +23,15 @@ class Filters extends BaseConfig
      * @phpstan-var array<string, class-string>
      */
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
-        'authGuard'     => AuthGuard::class
+        'csrf'              => CSRF::class,
+        'toolbar'           => DebugToolbar::class,
+        'honeypot'          => Honeypot::class,
+        'invalidchars'      => InvalidChars::class,
+        'secureheaders'     => SecureHeaders::class,
+        'authGuard'         => AuthGuard::class,
+        'superAdminGuard'   => SuperAdminAccess::class,
+        'adminOneGuard'     => AdminOneAccess::class,
+        'adminTwoGuard'     => AdminTwoAccess::class,
     ];
 
     /**

@@ -32,16 +32,17 @@
           </a>
         </li>
 
-        <li class="nav-item w-100">
-          <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle text-white px-0 py-3">
-            <span class="d-inline-block" style="width: 2rem;">
-              <i class="fa-solid fa-boxes-stacked fs-5"></i>
-            </span>
-            <span class="d-none d-md-inline">Manajemen data</span>
-          </a>
-        </li>
 
         <?php if (session()->get('role') == 'Admin-1' || session()->get('role') == 'Super-Admin') : ?>
+          <li class="nav-item w-100">
+            <a href="<?= base_url("/admin/tambah_barang") ?>" class="nav-link align-middle text-white px-0 py-3">
+              <span class="d-inline-block" style="width: 2rem;">
+                <i class="fa-solid fa-boxes-stacked fs-5"></i>
+              </span>
+              <span class="d-none d-md-inline">Manajemen data</span>
+            </a>
+          </li>
+
           <li class="nav-item w-100">
             <a href="<?= base_url("/admin/barang_masuk") ?>" class="nav-link align-middle text-white px-0 py-3">
               <span class="d-inline-block" style="width: 2rem;">
@@ -52,7 +53,7 @@
           </li>
         <?php endif ?>
 
-        <?php if (session()->get('role') == 'Admin-1' || session()->get('role') == 'Super-Admin') : ?>
+        <?php if (session()->get('role') == 'Admin-2' || session()->get('role') == 'Super-Admin') : ?>
           <li class="nav-item w-100">
             <a href="<?= base_url("/admin/barang_keluar") ?>" class="nav-link align-middle text-white px-0 py-3">
               <span class="d-inline-block" style="width: 2rem;">

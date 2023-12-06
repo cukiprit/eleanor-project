@@ -9,7 +9,7 @@
           <img src="<?= base_url('img/logo/logo-eleanor (1).png') ?>" class="mx-auto logo-login" width="150" alt="">
         </div>
         <h3 class="fw-bold">Registrasi Akun</h3>
-        <p class="text-secondary">Silahkan login terlebih dahulu untuk akses admin</p>
+        <p class="text-secondary">Silahkan buat akun terlebih dahulu untuk akses admin</p>
       </div>
       <?php if (isset($errors)) : ?>
         <div class="d-block w-80 alert alert-warning my-2">
@@ -58,8 +58,8 @@
         <img src="<?= base_url('img/logo/logo-eleanor (1).png') ?>" class="mx-auto" width="150" alt="">
       </div>
       <div class="">
-        <h5 class="fw-bold">Lorem ipsum dolor sit amet.</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, veritatis.</p>
+        <h5 class="fw-bold">Selamat Datang di Eleanor</h5>
+        <p>Silahkan buat akun terlebih dahulu.</p>
       </div>
     </div>
   </div>

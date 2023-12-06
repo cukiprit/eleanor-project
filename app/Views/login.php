@@ -7,8 +7,8 @@
         <img src="<?= base_url('img/logo/logo-eleanor (1).png') ?>" class="mx-auto" width="150" alt="">
       </div>
       <div class="">
-        <h5 class="fw-bold">Lorem ipsum dolor sit amet.</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, veritatis.</p>
+        <h5 class="fw-bold">Selamat Datang di Eleanor</h5>
+        <p>Silahkan Masukan Email dan Password untuk Login.</p>
       </div>
     </div>
   </div>

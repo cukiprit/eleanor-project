@@ -3,39 +3,33 @@
 <?= $this->section('content') ?>
 <div class="px-5" style="min-height: 100vh;background-color: #fef3c7;padding-top: 6rem;">
   <div class="text-center mt-2 mb-4">
-    <h2 class="fw-bold">Lorem ipsum dolor sit amet.</h2>
-    <p class="lh-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, incidunt</p>
+    <h2 class="fw-bold">Eleanor</h2>
+    <p class="lh-lg">Hubungi Kami</p>
   </div>
 
   <div class="p-4 m-2 bg-dark-amber rounded text-white">
-    <p class="fw-bold fs-17 m-0 mb-3">Informasi Sosial Media</p>
-    <p class="m-0">Kami hadir untuk menjadi mitra sebagai solusi pertumbuhan bisnis anda</p>
-    <ul class="list-group mt-3">
-      <li class="list-group-item bg-dark-amber border-0">
-        <a href="" class="d-flex btn text-white fs-17">
+    <p class="text-center fw-bold fs-17 m-0 mb-3">Informasi Sosial Media</p>
+    <p class="text-center m-0">Kami hadir untuk menjadi mitra sebagai solusi pertumbuhan bisnis anda</p>
+    <div class="row my-5">
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <a href="https://instagram.com/eleanorprojectofficial?igshid=OGQ5ZDc2ODk2ZA==" class="d-flex btn text-white fs-17">
           <i class="fab fa-instagram fs-4 me-2"></i>
           Instagram
         </a>
-      </li>
-      <li class="list-group-item bg-dark-amber border-0">
-        <a href="" class="d-flex btn text-white fs-17">
-          <i class="fab fa-twitter fs-4 me-2"></i>
-          Twitter
-        </a>
-      </li>
-      <li class="list-group-item bg-dark-amber border-0">
-        <a href="" class="d-flex btn text-white fs-17">
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <a href="https://www.facebook.com/eleanorfarm.id?mibextid=7BxKtlCqh5F1hMP9" class="d-flex btn text-white fs-17">
           <i class="fab fa-facebook fs-4 me-2"></i>
           Facebook
         </a>
-      </li>
-      <li class="list-group-item bg-dark-amber border-0">
-        <a href="" class="d-flex btn text-white fs-17">
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <a href="https://wa.me/+6282234468418" class="d-flex btn text-white fs-17">
           <i class="fab fa-whatsapp fs-4 me-2"></i>
           Whatsapp
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 
   <!-- <div class="row w-fit mx-auto rounded bg-white shadow">
